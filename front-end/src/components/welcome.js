@@ -16,7 +16,7 @@ class Welcome extends React.Component {
 
   handleSignIn(){
     console.log("YES")
-    this.setState({showSignIn: true})
+    window.history.pushState({object: "sign in form"}, "sign in form", "/sessions/new")
   }
 
   handleSignUp(){
@@ -28,7 +28,6 @@ class Welcome extends React.Component {
     return(
       <div>
         <button onClick={this.handleSignIn}>Sign In</button>
-        {this.state.showSignIn ? <SignIn /> : null}
         <button onClick={this.handleSignUp}>Sign Up</button>
       </div>
     )
