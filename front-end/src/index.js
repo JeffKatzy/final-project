@@ -15,7 +15,7 @@ export const store = createStore(signup, composeEnhancers(applyMiddleware(thunk)
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory} routes={routes}/>
+    <Router routes={routes}/>
   </Provider>,
   document.getElementById('root')
 );

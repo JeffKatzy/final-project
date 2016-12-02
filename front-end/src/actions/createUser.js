@@ -9,7 +9,7 @@ export default function createUser(formData){
       type: 'POST',
       data: JSON.stringify({auth: {email: formData.email, password: formData.password}}),
       contentType:"application/json; charset=utf-8",
-      datatype: 'json'
+      dataType: 'json'
     }).done((response) => {
       browserHistory.push('/newuser')
       localStorage.setItem('token', response.jwt)
