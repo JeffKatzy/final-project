@@ -1,34 +1,31 @@
-import React from 'react'
-import SignIn from './signin'
-import SignUp from './signup'
+import React, { Component } from 'react'
+import Signin from './signin'
+import Signup from './signup'
 // import { Link } from 'react-router'
 
 
-class Welcome extends React.Component {
+class Welcome extends Component {
 
   constructor(){
     super()
 
-    this.handleSignIn = this.handleSignIn.bind(this)
-    this.handleSignUp = this.handleSignUp.bind(this)
-    this.state = {showSignIn: false}
+    this.handleSignin = this.handleSignIn.bind(this)
+    this.handleSignup = this.handleSignUp.bind(this)
   }
 
-  handleSignIn(){
-    console.log("YES")
-    window.history.pushState({object: "sign in form"}, "sign in form", "/sessions/new")
+  handleSignin(){
+    window.history.pushState({object: "sign in form"}, "sign in form", "/signin")
   }
 
-  handleSignUp(){
-    console.log("NO")
-    return (<SignUp />)
+  handleSignup(){
+    window.history.pushState({object: "sign up form"}, "sign up form", "/signup")
   }
 
   render(){
     return(
       <div>
-        <button onClick={this.handleSignIn}>Sign In</button>
-        <button onClick={this.handleSignUp}>Sign Up</button>
+        <button onClick={this.handleSignin}>Sign In</button>
+        <button onClick={this.handleSignup}>Sign Up</button>
       </div>
     )
   }
