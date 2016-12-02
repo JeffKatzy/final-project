@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20161202005745) do
 
   create_table "playlists", force: :cascade do |t|
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161202005745) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "avatar"
+    t.integer  "playlist_id"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
