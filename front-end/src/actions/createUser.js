@@ -9,11 +9,11 @@ export default function createUser(formData){
       type: 'POST',
       data: JSON.stringify({auth: {email: formData.email, password: formData.password}}),
       contentType:"application/json; charset=utf-8",
-      datatype: 'json'
+      dataType: 'json'
     }).done((response) => {
       browserHistory.push('/newuser')
       localStorage.setItem('token', response.jwt)
-      dispatch({type: 'LOGIN_USER', current_user: response.userId})
+      dispatch({type: 'LOGIN_USER', current_user: response.current_user})
     })
   }
 }

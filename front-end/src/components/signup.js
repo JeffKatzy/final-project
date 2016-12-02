@@ -1,51 +1,40 @@
 import React, { Component } from 'react';
-import createUser from '../actions/createUser';
-import { connect } from 'react-redux';
-import Welcome from './welcome';
-
+import createUser from '../actions/createUser'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 class Signup extends Component {
-
-  constructor(props) {
+  
+  constructor(props){
     super(props)
-    this.state = {email: '', password: '', newSignUp: false}
+    this.state = {email: '', password: ''}
   }
-
-  handleOnEmailChange(event) {
-    this.setState({email: event.target.value})
-  }
-
-  handleOnPasswordChange(event) {
+  handlePasswordChange(event){
     this.setState({password: event.target.value})
   }
-
-  handleSubmit(event) {
+  handleEmailChange(event){
+    this.setState({email: event.target.value})
+  }
+  handleSubmit(event){
     event.preventDefault()
     this.props.createUser(this.state)
   }
-
-  // handleSignup() {
-  //   this.setState({newSignup: true})
-  //   welcome.
-  // }
-
   render(){
-     return(
-       <div>
-         <form onSubmit={this.handleSubmit.bind(this)}>
-             <h2> Signup </h2>
-             <p>
-             <label> Email </label>
-             <input type="text" placeholder="email@email.com" onChange={this.handleOnEmailChange.bind(this)}/>
-             </p>
-             <p>
-             <label> Password </label>
-             <input type="password" placeholder="your password" onChange={this.handleOnPasswordChange.bind(this)} />
-             </p>
-             <p> <input type="submit" /> </p>
-         </form>
-       </div>
-     )
-   }
- }
+    return(
+      <div>
+      <form onSubmit={this.handleSubmit.bind(this)}>
+        <label> Email</label>
+        <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
+        <label> Password</label>
+        <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
+        <input type="submit" />
+      </form>
+      </div>
+    )
+  }
+}
 
-export default connect(null, { createUser })(Signup)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ createUser }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Signup)

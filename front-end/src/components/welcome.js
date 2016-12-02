@@ -9,8 +9,8 @@ class Welcome extends Component {
   constructor(){
     super()
 
-    this.handleSignin = this.handleSignIn.bind(this)
-    this.handleSignup = this.handleSignUp.bind(this)
+    this.handleSignin = this.handleSignin.bind(this)
+    this.handleSignup = this.handleSignup.bind(this)
   }
 
   handleSignin(){
