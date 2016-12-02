@@ -7,7 +7,7 @@ export default function createUser(formData){
     $.ajax({
       url: 'http://localhost:3000/users',
       type: 'POST',
-      data: JSON.stringify({auth: {email: formData.email, password: formData.password}}),
+      data: JSON.stringify({user: {email: formData.email, password: formData.password}}),
       contentType:"application/json; charset=utf-8",
       dataType: 'json'
     }).done((response) => {

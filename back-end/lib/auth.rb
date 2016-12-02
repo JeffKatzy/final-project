@@ -16,10 +16,10 @@ class Auth
      auth_secret,
      true,
      { algorithm: ALGORITHM }).first
- end
+  end
 
   def self.auth_secret
-    ENV["AUTH_SECRET"]
+    Rails.application.secrets[:secret_key_base]
   end
 
 end
