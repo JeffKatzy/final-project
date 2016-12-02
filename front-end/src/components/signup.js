@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 class Signup extends Component {
   constructor(props){
     super(props)
-    this.state = {email: '', password: '', newSignup: false}
+    this.state = {email: '', password: ''}
   }
 
   handlePasswordChange(event){
@@ -26,13 +26,13 @@ class Signup extends Component {
   render(){
     return(
       <div>
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <label> Email</label>
-        <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
-        <label> Password</label>
-        <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
-        <input type="submit" />
-      </form>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <label> Email</label>
+          <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
+          <label> Password</label>
+          <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
+          <input type="submit" />
+        </form>
       </div>
     )
   }
