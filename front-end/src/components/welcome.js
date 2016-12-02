@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Signin from './signin'
 import Signup from './signup'
-// import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
 
 class Welcome extends Component {
@@ -14,18 +14,20 @@ class Welcome extends Component {
   }
 
   handleSignin(){
-    window.history.pushState({object: "sign in form"}, "sign in form", "/signin")
+    browserHistory.push({object: "sign in form"}, "sign in form", "/signin")
   }
 
   handleSignup(){
-    window.history.pushState({object: "sign up form"}, "sign up form", "/signup")
+    browserHistory.push({object: "sign up form"}, "sign up form", "/signup")
   }
 
   render(){
     return(
       <div>
-        <button onClick={this.handleSignin}>Sign In</button>
-        <button onClick={this.handleSignup}>Sign Up</button>
+        <ul>
+          <li><Link to={'/signin'}>SignIn</Link></li>
+          <li><Link to={'/signup'}>SignUp</Link></li>
+        </ul>
       </div>
     )
   }

@@ -11,9 +11,10 @@ export default function createUser(formData){
       contentType:"application/json; charset=utf-8",
       dataType: 'json'
     }).done((response) => {
-      browserHistory.push('/newuser')
-      localStorage.setItem('token', response.jwt)
-      dispatch({type: 'LOGIN_USER', current_user: response.current_user})
+      // browserHistory.push('/newuser')
+      // localStorage.setItem('token', response.jwt)
+      // dispatch({type: 'LOGIN_USER', current_user: response.current_user})
+      console.log("response")
     })
   }
 }
