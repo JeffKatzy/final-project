@@ -4,6 +4,7 @@ import './App.css';
 import Welcome from './components/welcome'
 
 class App extends Component {
+  // var mainPage =
   render() {
     return (
       <div className="App">

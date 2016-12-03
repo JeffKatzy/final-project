@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     if user.authenticate(auth_params[:password])
       jwt = Auth.issue({user: user.id})
       render json: {jwt: jwt}
-    else
     end
   end
 
@@ -14,5 +13,5 @@ class SessionsController < ApplicationController
     def auth_params
       params.require(:auth).permit(:email, :password)
     end
-    
+
 end

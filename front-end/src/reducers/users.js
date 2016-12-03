@@ -1,5 +1,7 @@
 export default function users(state =  [{"id": 1 ,"name": "bob"}], action){
   switch (action.type) {
+  case 'LOADING_DATA':
+    return true
   case 'FETCH_PROFILES':
     return state.concat(action.payload)
   case 'ADD':
