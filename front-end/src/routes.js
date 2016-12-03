@@ -4,6 +4,7 @@ import App from './App';
 import Signup from './components/signup';
 import Signin from './components/signin';
 import Users from './components/users';
+import Songs from './components/songs';
 
 
 export default (
