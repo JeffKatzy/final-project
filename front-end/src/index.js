@@ -8,10 +8,10 @@ import routes from './routes'
 import { Router, browserHistory } from 'react-router'
 import App from './App';
 import './index.css';
-import signup from './reducers/signup'
+import rootReducer from './reducers/rootReducer'
 
 const composeEnhancers = composeWithDevTools({});
-export const store = createStore(signup, composeEnhancers(applyMiddleware(thunk)))
+export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>

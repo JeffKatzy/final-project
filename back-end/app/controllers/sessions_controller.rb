@@ -6,12 +6,14 @@ class SessionsController < ApplicationController
     if user.authenticate(auth_params[:password])
       jwt = Auth.issue({user: user.id})
       render json: {jwt: jwt}
+    else
+      render json: {error: 'user not unique'}
     end
   end
 
   private
     def auth_params
-      params.require(:auth).permit(:email, :password)
+      params.require(:user).permit(:email, :password)
     end
 
 end
