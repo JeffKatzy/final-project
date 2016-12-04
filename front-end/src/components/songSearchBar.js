@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import findSong from '../actions/findSong'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import findSong from '../actions/findSong'
 
 class SongSearchBar extends Component {
   constructor(props) {
