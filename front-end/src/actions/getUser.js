@@ -1,31 +1,16 @@
 import $ from 'jquery';
+import { browserHistory } from 'react-router';
 
-export default function getUser(email, password){
+export default function getUser(formData){
   return function(dispatch){
     $.ajax({
-      url: "http://localhost:3000/sessions",
-      type: "POST",
-      data: JSON.stringify({user: {email: email, password: password}}),
+      url: 'http://localhost:3000/users',
+      type: 'POST',
+      data: JSON.stringify({user: {email: formData.email, password: formData.password}}),
       contentType: "application/json; charset=utf-8",
-      dataType: "json"
-  }).done((response) => {
-    debugger
-    alert("i'm hit")
+      dataType: 'json'
+    }).done((response) => {
+      console.log(response)
     })
   }
 }
-
-// export function loginUserAction(email, password){
-//   return function(dispatch){
-//     $.ajax({url:"http://localhost:3000/sessions",
-//             type: "POST",
-//             data: JSON.stringify({user: {email: email, password: password}}),
-//      contentType:"application/json; charset=utf-8",
-//      dataType: "json"
-//     }).done(function(data){
-//       localStorage.setItem('jwt', data.jwt)
-//       // fix this dispatch it's not working yet
-//       dispatch({type: 'LOGIN_USER', payload: data})
-//     })
-//   }
-// }

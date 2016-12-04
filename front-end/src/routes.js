@@ -11,9 +11,9 @@ export default (
   <Route path="/" component={App} >
     <Route path="signup" component={Signup} />
     <Route path="signin" component={Signin} />
-    <Route path="signout" component={Signin} />
+    <Route path="signout" />
     <Route path="users" component={Users} />
-    <Route path="sessions" component={HomePage} />
+    <Route path="sessions" />
     <Route path="homepage" component={HomePage} />
   </Route>
 );

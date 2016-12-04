@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
+import getUser from '../actions/getUser'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import getUser from '../actions/getUser'
 
 class Signin extends Component {
   constructor(props) {
     super(props)
-      this.state = {email: '', password: ''}
+    this.state = {email: '', password: ''}
   }
 
   handlePassword(event) {
@@ -19,7 +19,7 @@ class Signin extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    getUser(this.state.email, this.state.password)
+    getUser(this.state)
   }
 
   render(){

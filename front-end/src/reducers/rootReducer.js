@@ -1,6 +1,15 @@
 import { combineReducers } from 'redux';
-// import users from './users.js'
-import signup from './signup.js'
+
+function users(state =  {current_user: null}, action){
+  switch (action.type) {
+  case 'LOGIN_USER':
+    return {...state, current_user: action.current_user}
+  default:
+    return state;
+  }
+}
+
+export default combineReducers({users})
 
 // function songs(state = [], action){
 //   switch (action.type) {
@@ -10,27 +19,3 @@ import signup from './signup.js'
 //     return state;
 //   }
 // }
-
-function loading(state = false, action){
-  switch (action.type) {
-    case 'LOADING_DATA':
-      return true
-    case 'LOGIN_USER':
-      return false
-    default:
-    return state;
-  }
-}
-
-function users(state =  [], action){
-  switch (action.type) {
-  case 'LOADING_DATA':
-    return true
-  case 'LOGIN_USER':
-    return state.concat(action.payload)
-  default:
-    return state;
-  }
-}
-
-export default combineReducers({ users, signup, loading })

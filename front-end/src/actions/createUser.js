@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router';
 
 export default function createUser(formData){
   return function(dispatch){
-    dispatch({type: 'CREATING_USER'})
     $.ajax({
       url: 'http://localhost:3000/users',
       type: 'POST',

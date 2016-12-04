@@ -14,7 +14,7 @@ export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(t
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router routes={routes}/>
+    <Router history={browserHistory} routes={routes}/>
   </Provider>,
   document.getElementById('root')
 );

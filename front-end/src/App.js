@@ -6,7 +6,7 @@ import Welcome from './components/welcome'
 class App extends Component {
   constructor(){
     super()
-    this.state = {showWelcome: true, loggedIn: false}
+    this.state = {showWelcome: true}
     this.showWelcome = this.showWelcome.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
   }
@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   handleLogout(){
-    this.setState({showWelcome: true, loggedIn: false})
+    this.setState({showWelcome: true, current_user: false})
     localStorage.setItem('token', "")
   }
 

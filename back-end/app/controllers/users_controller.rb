@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, :only => [:new, :create]
+  skip_before_action :authenticate_user, :only => [:new, :create, :login]
 
   def show
     user = User.find(params[:id])
@@ -17,10 +17,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    byebug
+    user = User.find_by(email: user_params[:email])
+    if user.authenticate(user_params[:password])
+      jwt = Auth.issue({user: user.id})
+      render json: {jwt: jwt}
+    else
+      render json: {error: 'user not unique'}
+    end
+  end
+
   def index
     users = User.all
     render json: {users: users}
   end
+
 
   # def destroy
   #   respond_with User.destroy(params[:id])
