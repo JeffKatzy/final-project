@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::API
+  protect_from_forgery with: :null_session
+  respond_to :json
+
   before_action :authenticate_user
 
   def authenticate_user
@@ -12,5 +15,5 @@ class ApplicationController < ActionController::API
   def current_user
     User.find(Auth.decode(request.env["HTTP_AUTHORIZATION"])[0]["user_id"]) if request.env["HTTP_AUTHORIZATION"].present?
   end
-  
+
 end

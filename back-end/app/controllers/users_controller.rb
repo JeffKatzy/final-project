@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, :only => [:new, :create]
 
-  def new
-    @user = User.new
-    render :new
-  end
-
   def show
     user = User.find(params[:id])
     jwt = Auth.issue({user_id: user.id})
@@ -27,8 +22,18 @@ class UsersController < ApplicationController
     render json: {users: users}
   end
 
-  def user_params
-    params.require(:user).permit(:email, :password)
-  end
+  # def destroy
+  #   respond_with User.destroy(params[:id])
+  # end
+
+  # def update
+  #   user = User.find(params["id"]) user.update_attributes(user_params)
+  #   respond_with user, json: user
+  # end
+
+  private
+    def user_params
+      params.require(:user).permit(:email, :password)
+    end
 
 end
