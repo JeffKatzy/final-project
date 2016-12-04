@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router';
 
 export default function getUser(formData){
   return function(dispatch){
-    debugger
     $.ajax({
       url: 'http://localhost:3000/login',
       type: 'POST',
@@ -14,6 +13,8 @@ export default function getUser(formData){
       localStorage.setItem('token', response.jwt)
       dispatch({type: 'LOGIN_USER', current_user: response.current_user})
       browserHistory.push('/homepage')
+    }).fail(function() {
+        alert("Please login with a valid account")
     })
   }
 }

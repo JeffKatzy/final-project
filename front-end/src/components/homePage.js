@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router'
+import SongSearchBar from './songSearchBar'
 
 class HomePage extends Component {
   render(){
     return(
       <div>
-        HEHE HOMEPAGE
         <p onClick={this.props.handleLogout}><Link to={'/'}>SignOut</Link></p>
+        HEHE HOMEPAGE
+        <SongSearchBar />
       </div>)
   }
 }

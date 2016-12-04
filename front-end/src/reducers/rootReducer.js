@@ -9,13 +9,13 @@ function users(state =  {current_user: null}, action){
   }
 }
 
-export default combineReducers({users})
+function songs(state = [], action){
+  switch (action.type) {
+    case 'ADD_SONG':
+      return [...state, action.payload]
+    default:
+    return state;
+  }
+}
 
-// function songs(state = [], action){
-//   switch (action.type) {
-//     case 'ADD_SONG':
-//       return [...state, action.payload]
-//     default:
-//     return state;
-//   }
-// }
+export default combineReducers({users, songs})
