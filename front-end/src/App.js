@@ -6,15 +6,27 @@ import Welcome from './components/welcome'
 class App extends Component {
   constructor(){
     super()
-    this.state = {showWelcome: true}
+    this.state = {showWelcome: true, loggedIn: false}
     this.showWelcome = this.showWelcome.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   showWelcome() {
     this.setState({showWelcome: false})
   }
 
+  handleLogout(){
+    this.setState({showWelcome: true, loggedIn: false})
+    localStorage.setItem('token', "")
+  }
+
   render() {
+    const childrenWithExtraProp = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        handleLogout: this.handleLogout
+      })
+    })
+
     return (
       <div className="App">
         <div className="App-header">
@@ -22,7 +34,7 @@ class App extends Component {
           <h2>DayJams</h2>
         </div>
         {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
-        {this.props.children}
+        {childrenWithExtraProp}
       </div>
     );
   }
