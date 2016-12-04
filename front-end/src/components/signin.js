@@ -19,7 +19,7 @@ class Signin extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    getUser(this.state)
+    this.props.getUser(this.state)
   }
 
   render(){

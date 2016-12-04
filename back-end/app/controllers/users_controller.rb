@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   def login
-    byebug
     user = User.find_by(email: user_params[:email])
     if user.authenticate(user_params[:password])
       jwt = Auth.issue({user: user.id})
