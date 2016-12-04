@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import getUser from '../actions/getUser'
-import getUserPage from '../actions/getUserPage'
 
 class Signin extends Component {
-
   constructor(props) {
     super(props)
       this.state = {email: '', password: ''}
@@ -26,7 +24,8 @@ class Signin extends Component {
 
   render(){
     return(
-      <div>
+      <div className="login">
+        <h4>Sign In</h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label> Email</label>
           <input type="text" placeholder="enter email" onChange={this.handleEmail.bind(this)}/>

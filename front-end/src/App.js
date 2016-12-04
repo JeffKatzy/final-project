@@ -4,7 +4,16 @@ import './App.css';
 import Welcome from './components/welcome'
 
 class App extends Component {
-  // var mainPage =
+  constructor(){
+    super()
+    this.state = {showWelcome: true}
+    this.showWelcome = this.showWelcome.bind(this)
+  }
+
+  showWelcome() {
+    this.setState({showWelcome: false})
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,7 +21,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>DayJams</h2>
         </div>
-        <Welcome />
+        {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
         {this.props.children}
       </div>
     );

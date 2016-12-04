@@ -6,7 +6,6 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import routes from './routes'
 import { Router, browserHistory } from 'react-router'
-import App from './App';
 import './index.css';
 import rootReducer from './reducers/rootReducer'
 
