@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    User.find(Auth.decode(request.env["HTTP_AUTHORIZATION"])[0]["user_id"]) if request.env["HTTP_AUTHORIZATION"].present?
+    User.find(Auth.decode(params['token'])["user_id"]) if params['token']
   end
 
 end

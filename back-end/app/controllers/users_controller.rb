@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def login
     user = User.find_by(email: user_params[:email])
     if user.authenticate(user_params[:password])
-      jwt = Auth.issue({user: user.id})
+      jwt = Auth.issue({user_id: user.id})
       render json: {jwt: jwt}
     else
       render json: {error: 'user not unique'}
