@@ -4,7 +4,6 @@ import App from './App';
 import Signup from './components/signup';
 import Signin from './components/signin';
 import HomePage from './components/homePage'
-import SongSearchBar from './components/songSearchBar';
 
 export default (
   <Route path="/" component={App} >

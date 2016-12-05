@@ -1,5 +1,4 @@
 import $ from 'jquery';
-// import SongResults from '../components/songResults'
 
 export default function findSong(formData) {
   return function(dispatch) {

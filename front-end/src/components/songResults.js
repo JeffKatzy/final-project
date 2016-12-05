@@ -2,20 +2,24 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class SongResults extends Component {
-  constructor(props) {
+  constructor(props){
     super(props)
+    this.addSong = this.addSong.bind(this)
+  }
+
+  addSong(event){
+    debugger
+    // let id = event.target.key
+
   }
 
   render() {
-    let songs = this.props.songResults.map(function(song){
-      return <li key={song.id}>{song.name}</li>
-    })
-    debugger
+    let songs = this.props.songResults.map(song => {return (<div key={song.id}><li>{song.name} - {song.album.name}, {song.artists[0].name}</li><button onClick={this.addSong}>Add to Playlist</button></div>)})
 
     return(
       <div>
         <ul>
-          {songs}
+        {songs}
         </ul>
       </div>
     )
@@ -23,7 +27,7 @@ class SongResults extends Component {
 }
 
 function mapStateToProps(state){
-  return {songResults: state.songResults}
+  return {songResults: state.songs.songResults}
 }
 
 export default connect(mapStateToProps)(SongResults)
