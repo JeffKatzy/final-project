@@ -9,15 +9,15 @@ function users(state =  {current_user: null}, action){
   }
 }
 
-function songs(state = [], action){
+function songResults(state = [], action){
   switch (action.type) {
     case 'ADD_SONG':
       return {...state, currentSong: action.currentSong}
     case 'FIND_SONG':
-      return {...state, songResults: action.songResults}
+      return [...state, action.songResults]
     default:
       return state;
   }
 }
 
-export default combineReducers({users, songs})
+export default combineReducers({users, songResults})

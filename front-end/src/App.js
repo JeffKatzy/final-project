@@ -6,7 +6,7 @@ import Welcome from './components/welcome'
 class App extends Component {
   constructor(){
     super()
-    this.state = {showWelcome: true}
+    this.state = {showWelcome: true, songResults: []}
     this.showWelcome = this.showWelcome.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
   }

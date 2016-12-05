@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router'
 import SongSearchBar from './songSearchBar'
+import SongResults from './songResults'
 
 class HomePage extends Component {
   render(){
@@ -10,6 +11,7 @@ class HomePage extends Component {
         <p onClick={this.props.handleLogout}><Link to={'/'}>SignOut</Link></p>
         HEHE HOMEPAGE
         <SongSearchBar />
+        <SongResults />
       </div>)
   }
 }

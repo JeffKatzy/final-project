@@ -1,4 +1,5 @@
 import $ from 'jquery';
+// import SongResults from '../components/songResults'
 
 export default function findSong(formData) {
   return function(dispatch) {
@@ -7,7 +8,8 @@ export default function findSong(formData) {
       type: 'GET',
       contentType:"application/json; charset=utf-8",
       dataType: 'json'
-    })}.done(response => {
-      console.log(response)
-  })
+    }).done(response => {
+      dispatch({type: 'FIND_SONG', songResults: response.tracks.items})
+    })
+  }
 }
