@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import addToPlaylist from '../actions/addToPlaylist'
 
 class SongResults extends Component {
 
-  addSong(event){
-    let id = event
+  addSong(event) {
+    let song = event
+    this.props.addToPlaylist(song)
+    debugger
   }
 
   render() {
-    let songs = this.props.songResults.map(song => {return (<div key={song.id}><li>{song.name} - {song.album.name}, {song.artists[0].name}</li><button onClick={this.addSong.bind(this, song.id)}>Add to Playlist</button></div>)})
+    let songs = this.props.songResults.map(song => {return (<div key={song.id}><li>{song.name} - {song.album.name}, {song.artists[0].name}</li><button onClick={this.addSong.bind(this, song)}>Add to Playlist</button></div>)})
 
     return(
       <div>
@@ -20,8 +24,13 @@ class SongResults extends Component {
   }
 }
 
-function mapStateToProps(state){
-  return {songResults: state.songs.songResults}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addToPlaylist }, dispatch)
 }
 
-export default connect(mapStateToProps)(SongResults)
+function mapStateToProps(state) {
+  return {songResults: state.songs.songResults, playlist: state.songs.playlist}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SongResults)
