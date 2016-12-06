@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_one :playlist
   has_many :songs, through: :playlist
 
+
 end
