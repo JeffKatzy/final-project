@@ -12,9 +12,20 @@ class SongsController < ApplicationController
     end
   end
 
+  def destroy
+    byebug
+    user = User.find(Auth.decode(params['token'])["user_id"])
+    byebug
+    song = Song.find(song_params[:id]).destroy
+  end
+
   private
     def song_params
-      params.require(:song).permit(:name, :artist, :album, :spotify_id, :duration)
+      params.require(:song).permit(:name, :artist, :album, :spotify_id, :duration, :id)
     end
+
+    # def user_params
+    #   params.require(:user).permit(:id)
+    # end
 
 end

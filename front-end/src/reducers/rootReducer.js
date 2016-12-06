@@ -15,6 +15,8 @@ function songs(state = {playlist: [], songResults: []}, action){
       return {...state, playlist: action.playlist}
   case 'FIND_SONG':
     return {...state, songResults: action.songResults}
+  case 'DESTROY_SONG':
+    return {...state, playlist: action.playlist}
   default:
       return state;
   }

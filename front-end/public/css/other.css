@@ -1,6 +1,8 @@
-/*.button {
-  font-size: 0.9em;
-}*/
+.button.button-primary {
+  /*font-size: 0.9em;*/
+  background-color: green;
+  border-color: green;
+}
 
 body {
   background: url(/bg.jpg) no-repeat center center fixed;
@@ -12,10 +14,11 @@ body {
 .song-search-results, .playlist-time {
   padding-top: 8px;
   color: #000000;
-  /*background-color: rgba(255, 255, 255, 0.5);*/
 }
+
 .container {
   background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
 }
 
 /* round edges of div */

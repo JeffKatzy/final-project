@@ -25,7 +25,7 @@ class Signin extends Component {
   render(){
     return(
       <div className="login">
-        <div className="container">
+        <div className="not-container">
           <div className="row">
             <div className="four columns offset-by-four">
               <h4>Sign In</h4>

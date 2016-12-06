@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import destroySong from '../actions/destroySong'
 import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux'
 
 class Playlist extends Component {
   constructor(props) {
@@ -8,11 +9,16 @@ class Playlist extends Component {
   }
 
 
+  handleDestroy(event) {
+    this.props.destroySong(event)
+  }
+
+
   render() {
     let songs = this.props.playlist.map(song => {
       return (
         <div key={song.id}>
-          <li>{song.name} - {song.album}, {song.artist}</li>
+          <li>{song.name} - {song.album}, {song.artist} <span onClick={this.handleDestroy.bind(this, song.id)}>[x]</span></li>
         </div>
       )})
 
@@ -31,4 +37,8 @@ function mapStateToProps(state) {
   return {playlist: state.songs.playlist}
 }
 
-export default connect(mapStateToProps)(Playlist)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ destroySong }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Playlist)
