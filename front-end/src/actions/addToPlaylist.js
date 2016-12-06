@@ -10,9 +10,6 @@ export default function addToPlaylist(song) {
       dataType: 'json'
     }).done((response) => {
       dispatch({type: 'ADD_SONG', playlist: response.jwt.playlist})
-    //       localStorage.setItem('token', response.jwt)
-    //       dispatch({type: 'LOGIN_USER', current_user: response.current_user})
-    //       browserHistory.push('/homepage')
     })
   }
 }

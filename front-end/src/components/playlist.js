@@ -10,11 +10,9 @@ class Playlist extends Component {
 
   render() {
     let songs = this.props.playlist.map(song => {
-      debugger
       return (
         <div key={song.id}>
-          <li>{song.name} - {song.album.name}, {song.artists[0].name}</li>
-          <button onClick={this.addSong.bind(this, song)}>Add to Playlist</button>
+          <li>{song.name} - {song.album}, {song.artist}</li>
         </div>
       )})
 
@@ -22,7 +20,7 @@ class Playlist extends Component {
       <div className="playlist-time">
         <h4>Playlist</h4>
         <ul>
-        {songs}
+          {songs}
         </ul>
       </div>
     )

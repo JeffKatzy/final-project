@@ -12,7 +12,7 @@ function users(state =  {current_user: null}, action){
 function songs(state = {playlist: [], songResults: []}, action){
   switch (action.type) {
     case 'ADD_SONG':
-      return {...state, playlist: [action.playlist]}
+      return {...state, playlist: action.playlist}
   case 'FIND_SONG':
     return {...state, songResults: action.songResults}
   default:
