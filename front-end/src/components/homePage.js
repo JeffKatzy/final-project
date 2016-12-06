@@ -9,7 +9,6 @@ class HomePage extends Component {
     return(
       <div>
         <p onClick={this.props.handleLogout}><Link to={'/'}>SignOut</Link></p>
-        HEHE HOMEPAGE
         <SongSearchBar />
         <SongResults />
       </div>)

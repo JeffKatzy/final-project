@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Welcome from './components/welcome'
 
@@ -29,10 +28,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>DayJams</h2>
-        </div>
+          <h1>DayJams</h1>
         {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
         {childrenWithExtraProp}
       </div>
