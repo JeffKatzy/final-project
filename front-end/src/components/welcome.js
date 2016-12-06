@@ -4,10 +4,12 @@ import { Link } from 'react-router'
 function Welcome(props) {
   return(
     <div id="welcome">
-    <ul className="welcome-list">
-      <li onClick={props.showWelcome}><Link to={'/signin'}>SignIn</Link></li>
-      <li onClick={props.showWelcome}><Link to={'/signup'}>SignUp</Link></li>
-    </ul>
+      <div className="row">
+      <div className="twelve columns">
+        <span onClick={props.showWelcome}><Link to={'/signin'} className="button button-primary">SignIn</Link></span>
+        <span onClick={props.showWelcome}><Link to={'/signup'} className="button button-primary">SignUp</Link></span>
+      </div>
+      </div>
     </div>
   )
 }

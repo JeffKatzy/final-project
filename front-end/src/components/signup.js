@@ -24,14 +24,14 @@ class Signup extends Component {
 
   render(){
     return(
-      <div className="login">
+      <div className="login" class="row">
         <h4>Sign Up</h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label> Email</label>
-          <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
+          <input type="text" class="u-full-width" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
           <label> Password</label>
-          <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
-          <input type="submit" />
+          <input type="password" class="u-full-width" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
+          <input type="submit" class="button-primary" />
         </form>
       </div>
     )

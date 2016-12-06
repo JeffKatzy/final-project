@@ -25,14 +25,22 @@ class Signin extends Component {
   render(){
     return(
       <div className="login">
+      <div className="row">
         <h4>Sign In</h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label> Email</label>
-          <input type="text" placeholder="enter email" onChange={this.handleEmail.bind(this)}/>
-          <label> Password</label>
-          <input type="password" placeholder="enter password" onChange={this.handlePassword.bind(this)}/>
-          <input type="submit" />
+          <div className="five columns">
+            <label> Email</label>
+            <input type="text" className="u-full-width" placeholder="enter email" onChange={this.handleEmail.bind(this)}/>
+          </div>
+          <div className="five columns">
+            <label> Password</label>
+            <input type="password" className="u-full-width" placeholder="enter password" onChange={this.handlePassword.bind(this)}/>
+          </div>
+          <div className="two columns">
+            <input type="submit" className="button-primary" />
+          </div>
         </form>
+      </div>
       </div>
     )
   }
