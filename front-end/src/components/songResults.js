@@ -8,7 +8,6 @@ class SongResults extends Component {
   addSong(event) {
     let song = event
     this.props.addToPlaylist(song)
-    debugger
   }
 
   render() {

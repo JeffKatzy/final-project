@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202005745) do
+ActiveRecord::Schema.define(version: 20161206014637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "playlist_songs", force: :cascade do |t|
+    t.integer "playlist_id"
+    t.integer "song_id"
+  end
 
   create_table "playlists", force: :cascade do |t|
     t.integer "user_id"
@@ -23,15 +28,12 @@ ActiveRecord::Schema.define(version: 20161202005745) do
     t.string  "name"
     t.string  "artist"
     t.string  "album"
-    t.integer "spotify_id"
+    t.string  "spotify_id"
     t.integer "duration"
     t.integer "playlist_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "avatar"
     t.integer "playlist_id"
     t.string  "email"
     t.string  "password_digest"
