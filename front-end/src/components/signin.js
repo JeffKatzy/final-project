@@ -30,9 +30,9 @@ class Signin extends Component {
             <div className="four columns offset-by-four">
               <h4>Sign In</h4>
               <form onSubmit={this.handleSubmit.bind(this)}>
-                <label for="email"> Email</label>
+                <label> Email</label>
                 <input type="text" id="email" className="u-full-width" placeholder="enter email" onChange={this.handleEmail.bind(this)}/>
-                <label for="password"> Password</label>
+                <label> Password</label>
                 <input type="password" id="password" className="u-full-width" placeholder="enter password" onChange={this.handlePassword.bind(this)}/>
                 <input type="submit" className="button-primary" />
               </form>

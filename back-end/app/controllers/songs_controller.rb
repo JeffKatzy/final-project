@@ -5,7 +5,7 @@ class SongsController < ApplicationController
     user = User.find(Auth.decode(params['token'])["user_id"])
     song.playlists << user.playlist
     if song.save
-      jwt = {song_id: song.id}
+      jwt = {playlist: user.playlist.songs}
       render json: {jwt: jwt}
     else
       render json: {error: 'song does not exist'}
