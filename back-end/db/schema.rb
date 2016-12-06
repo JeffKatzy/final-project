@@ -21,29 +21,21 @@ ActiveRecord::Schema.define(version: 20161206014637) do
   end
 
   create_table "playlists", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "name"
-    t.string   "artist"
-    t.string   "genre"
-    t.string   "album"
-    t.string   "album_image"
-    t.integer  "duration"
-    t.integer  "playlist_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string  "name"
+    t.string  "artist"
+    t.string  "album"
+    t.string  "spotify_id"
+    t.integer "duration"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer "playlist_id"
+    t.string  "email"
+    t.string  "password_digest"
   end
 
 end

@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       jwt = Auth.issue({user_id: user.id})
-      byebug
       user.playlist_id = Playlist.create(user_id: user.id).id
       user.save
       render json: {jwt: jwt}

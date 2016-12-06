@@ -1,12 +1,11 @@
 class SongsController < ApplicationController
 
   def create
-    byebug
     song = Song.new(song_params)
     user = User.find(Auth.decode(params['token'])["user_id"])
+    song.playlists << user.playlist
     if song.save
       jwt = {song_id: song.id}
-      user.songs << song
       render json: {jwt: jwt}
     else
       render json: {error: 'song does not exist'}
