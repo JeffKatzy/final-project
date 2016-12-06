@@ -8,7 +8,7 @@ class HomePage extends Component {
   render(){
     return(
       <div>
-        <p onClick={this.props.handleLogout}><Link to={'/'}>SignOut</Link></p>
+        <p onClick={this.props.handleLogout}><Link to={'/'} className="button button-primary">SignOut</Link></p>
         <SongSearchBar />
         <SongResults />
       </div>)
