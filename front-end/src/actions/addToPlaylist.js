@@ -9,8 +9,7 @@ export default function addToPlaylist(song) {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
-      debugger
-      dispatch({type: 'ADD_SONG', playlist: response.playlist})
+      dispatch({type: 'ADD_SONG', playlist: response.jwt.playlist})
     //       localStorage.setItem('token', response.jwt)
     //       dispatch({type: 'LOGIN_USER', current_user: response.current_user})
     //       browserHistory.push('/homepage')

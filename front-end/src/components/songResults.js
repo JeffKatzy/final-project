@@ -11,10 +11,10 @@ class SongResults extends Component {
   }
 
   render() {
-    let songs = this.props.songResults.map(song => {return (<div key={song.id}><li>{song.name} - {song.album.name}, {song.artists[0].name}</li><button onClick={this.addSong.bind(this, song)}>Add to Playlist</button></div>)})
+    let songs = this.props.songResults.map(song => {return (<div key={song.id}><li>{song.name} - {song.album.name}, {song.artists[0].name}</li><button className="button button-primary" onClick={this.addSong.bind(this, song)}>Add to Playlist</button></div>)})
 
     return(
-      <div>
+      <div className="song-search-results">
         <ul>
         {songs}
         </ul>

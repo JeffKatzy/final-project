@@ -3,11 +3,14 @@ import { connect } from 'react-redux'
 // import { bindActionCreators } from 'redux'
 
 class Playlist extends Component {
+  constructor(props) {
+    super(props)
+  }
+
 
   render() {
-    debugger
-
     let songs = this.props.playlist.map(song => {
+      debugger
       return (
         <div key={song.id}>
           <li>{song.name} - {song.album.name}, {song.artists[0].name}</li>
@@ -16,7 +19,8 @@ class Playlist extends Component {
       )})
 
     return(
-      <div>
+      <div className="playlist-time">
+        <h4>Playlist</h4>
         <ul>
         {songs}
         </ul>

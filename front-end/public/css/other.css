@@ -8,3 +8,14 @@ body {
   background-repeat: no-repeat;;
   background-position: center;
 }
+
+.song-search-results, .playlist-time {
+  padding-top: 8px;
+  color: #000000;
+  /*background-color: rgba(255, 255, 255, 0.5);*/
+}
+.container {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* round edges of div */
