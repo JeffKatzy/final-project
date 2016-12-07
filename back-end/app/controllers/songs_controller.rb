@@ -15,8 +15,9 @@ class SongsController < ApplicationController
   def destroy
     byebug
     user = User.find(Auth.decode(params['token'])["user_id"])
-    byebug
-    song = Song.find(song_params[:id]).destroy
+    user.playlist.songs.delete(Song.find(params[:id]))
+    jwt = {playlist: user.playlist.songs}
+    render json: {jwt: jwt}
   end
 
   private

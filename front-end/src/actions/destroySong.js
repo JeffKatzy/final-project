@@ -3,9 +3,9 @@ import $ from 'jquery';
 export default function destroySong(song) {
   return function(dispatch){
     $.ajax({
-      url: 'http://localhost:3000/songs',
+      url: `http://localhost:3000/songs/${song}/destroy`,
       type: 'POST',
-      data: JSON.stringify({song: {id: song.id}, token: localStorage.token}),
+      data: JSON.stringify({token: localStorage.token}),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
