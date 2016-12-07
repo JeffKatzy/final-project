@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router'
 import SongSearchBar from './songSearchBar'
 import SongResults from './songResults'
@@ -16,9 +15,3 @@ export default class HomePage extends Component {
       </div>)
   }
 }
-
-// function mapStateToProps(state){
-//   return {users: state.users}
-// }
-
-// export default connect(mapStateToProps)(HomePage)

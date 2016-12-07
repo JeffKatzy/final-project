@@ -29,7 +29,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {songs: state.songResults, playlist: state.playlist}
+  return {songs: state.songResults}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongResults)

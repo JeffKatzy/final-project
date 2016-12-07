@@ -4,6 +4,8 @@ function user(state = null, action){
   switch (action.type) {
   case 'LOGIN_USER':
     return action.user
+  case 'LOGOUT_USER':
+    return null
   default:
     return state;
   }
@@ -13,6 +15,8 @@ function songResults(state = [], action) {
   switch (action.type) {
   case 'FIND_SONG':
     return action.songResults
+  case 'LOGOUT_USER':
+    return []
   default:
     return state;
   }
@@ -26,9 +30,22 @@ function playlist(state = [], action) {
     return action.playlist
   case 'GET_PLAYLIST':
     return action.playlist
+  case 'LOGOUT_USER':
+    return []
   default:
-      return state;
+    return state;
   }
 }
 
-export default combineReducers({user, songResults, playlist})
+function showWelcome(state = true, action) {
+  switch (action.type) {
+  case 'LOGIN_USER':
+    return false
+  case 'LOGOUT_USER':
+    return true
+  default:
+    return state;
+  }
+}
+
+export default combineReducers({user, songResults, playlist, showWelcome})

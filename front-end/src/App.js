@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import './App.css';
 import Welcome from './components/welcome'
+import logoutUser from './actions/logoutUser'
 
 class App extends Component {
   constructor(){
     super()
-    this.state = {showWelcome: true, songResults: []}
+    this.state = {showWelcome: true}
     this.showWelcome = this.showWelcome.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
   }
@@ -15,8 +18,7 @@ class App extends Component {
   }
 
   handleLogout(){
-    this.setState({showWelcome: true, current_user: false})
-    localStorage.setItem('token', "")
+    this.props.logoutUser()
   }
 
   render() {
@@ -38,4 +40,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ logoutUser }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(App)
