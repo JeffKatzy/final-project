@@ -24,7 +24,7 @@ class SongSearchBar extends Component {
         <form onSubmit={this.handleSongSearch.bind(this)}>
           <label> Song Name:</label>
           <input type="text" placeholder="enter song name" onChange={this.handleSongNameChange.bind(this)} />
-          <input type="submit" />
+          <input className="button-primary" type="submit" />
         </form>
       </div>
     )

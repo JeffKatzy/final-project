@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_one :playlist
-  has_many :songs, -> {readonly}, through: :playlist
 
+  has_many :user_playlists
+  has_many :playlists, through: :user_playlists
 end

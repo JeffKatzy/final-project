@@ -2,20 +2,21 @@ class SongsController < ApplicationController
 
   def create
     song = Song.new(song_params)
-    user = User.find(Auth.decode(params['token'])["user_id"])
-    song.playlists << user.playlist
+    user_id = Auth.decode(params['token'])["user_id"]
+    playlist = Playlist.find(user_id)
+    song.playlists << playlist
     if song.save
-      jwt = {playlist: user.playlist.songs}
-      render json: {jwt: jwt}
+      render json: {playlist: playlist.songs}
     else
       render json: {error: 'song does not exist'}
     end
   end
 
   def destroy
-    user = User.find(Auth.decode(params['token'])["user_id"])
-    user.playlist.songs.delete(Song.find(params[:id]))
-    render json: {playlist: user.playlist.songs}
+    user_id = Auth.decode(params['token'])["user_id"]
+    playlist = Playlist.find(user_id)
+    playlist.songs.delete(Song.find(params[:id]))
+    render json: {playlist: playlist.songs}
   end
 
   private

@@ -9,7 +9,7 @@ export default function addToPlaylist(song) {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
-      dispatch({type: 'ADD_SONG', playlist: response.jwt.playlist})
+      dispatch({type: 'ADD_SONG', playlist: response.playlist})
     })
   }
 }
