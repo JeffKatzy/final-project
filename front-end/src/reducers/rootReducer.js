@@ -1,25 +1,34 @@
 import { combineReducers } from 'redux';
 
-function users(state =  {current_user: null}, action){
+function user(state = null, action){
   switch (action.type) {
   case 'LOGIN_USER':
-    return {...state, current_user: action.current_user}
+    return action.user
   default:
     return state;
   }
 }
 
-function songs(state = {playlist: [], songResults: []}, action){
+function songResults(state = [], action) {
   switch (action.type) {
-    case 'ADD_SONG':
-      return {...state, playlist: action.playlist}
   case 'FIND_SONG':
-    return {...state, songResults: action.songResults}
+    return action.songResults
+  default:
+    return state;
+  }
+}
+
+function playlist(state = [], action) {
+  switch (action.type) {
+  case 'ADD_SONG':
+    return action.playlist
   case 'DESTROY_SONG':
-    return {...state, playlist: action.playlist}
+    return action.playlist
+  case 'GET_PLAYLIST':
+    return action.playlist
   default:
       return state;
   }
 }
 
-export default combineReducers({users, songs})
+export default combineReducers({user, songResults, playlist})

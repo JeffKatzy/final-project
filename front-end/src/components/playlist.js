@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import destroySong from '../actions/destroySong'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import destroySong from '../actions/destroySong'
+import getPlaylist from '../actions/getPlaylist'
 
 class Playlist extends Component {
-  constructor(props) {
-    super(props)
+  componentWillMount() {
+    this.props.getPlaylist(this.props.user)
   }
-
 
   handleDestroy(event) {
     this.props.destroySong(event)
@@ -34,11 +34,11 @@ class Playlist extends Component {
 }
 
 function mapStateToProps(state) {
-  return {playlist: state.songs.playlist}
+  return {playlist: state.playlist, user: state.user}
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ destroySong }, dispatch)
+  return bindActionCreators({ destroySong, getPlaylist }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist)

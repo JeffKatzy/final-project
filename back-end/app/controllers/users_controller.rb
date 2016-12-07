@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       jwt = Auth.issue({user_id: user.id})
       user.playlist_id = Playlist.create(user_id: user.id).id
       user.save
-      render json: {jwt: jwt}
+      render json: {jwt: jwt, userId: user.id}
     else
       render json: {error: 'user not unique'}
     end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     user = User.find_by(email: user_params[:email])
     if user.authenticate(user_params[:password])
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt}
+      render json: {jwt: jwt, userId: user.id}
     else
       render json: {error: 'user not unique'}
     end

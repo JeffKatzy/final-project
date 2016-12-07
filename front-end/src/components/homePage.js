@@ -5,7 +5,7 @@ import SongSearchBar from './songSearchBar'
 import SongResults from './songResults'
 import Playlist from './playlist'
 
-class HomePage extends Component {
+export default class HomePage extends Component {
   render(){
     return(
       <div>
@@ -17,8 +17,8 @@ class HomePage extends Component {
   }
 }
 
-function mapStateToProps(state){
-  return {users: state.users}
-}
+// function mapStateToProps(state){
+//   return {users: state.users}
+// }
 
-export default connect(mapStateToProps)(HomePage)
+// export default connect(mapStateToProps)(HomePage)

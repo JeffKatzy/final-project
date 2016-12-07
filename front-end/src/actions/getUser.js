@@ -11,7 +11,7 @@ export default function getUser(formData){
       dataType: 'json'
     }).done((response) => {
       localStorage.setItem('token', response.jwt)
-      dispatch({type: 'LOGIN_USER', current_user: response.current_user})
+      dispatch({type: 'LOGIN_USER', user: response.userId})
       browserHistory.push('/homepage')
     }).fail(function() {
         alert("Please login with a valid account")
