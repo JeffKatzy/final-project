@@ -9,7 +9,7 @@ export default function destroySong(song) {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
-      dispatch({type: 'DESTROY_SONG', playlist: response.jwt.playlist})
+      dispatch({type: 'DESTROY_SONG', playlist: response.playlist})
     })
   }
 }
