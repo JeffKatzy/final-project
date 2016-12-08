@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161207212352) do
   create_table "playlist_songs", force: :cascade do |t|
     t.integer "playlist_id"
     t.integer "song_id"
+    t.integer "owner_id"
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20161207212352) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string  "name"
     t.integer "playlist_id"
     t.string  "email"
     t.string  "password_digest"

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/songs/:id/destroy', to: 'songs#destroy'
   post '/playlists/destroy', to: 'playlists#destroy'
   post '/search', to: 'songs#search'
+  post '/invite', to: 'playlists#invite_user'
   resources :users, :sessions, :playlists
   resources :songs, except: [:destroy]
 

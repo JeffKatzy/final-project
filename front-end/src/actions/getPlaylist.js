@@ -9,7 +9,7 @@ export default function getPlaylist(id) {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
-      dispatch({type: 'GET_PLAYLIST', playlist: response.playlist})
+      dispatch({type: 'GET_PLAYLIST', playlist: response.playlist, playlists: })
     })
   }
 }
