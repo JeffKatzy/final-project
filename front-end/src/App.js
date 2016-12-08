@@ -30,7 +30,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="container">
+        <div id="container">
           <h1>DayJams</h1>
         {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
         {childrenWithExtraProp}
