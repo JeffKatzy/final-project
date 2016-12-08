@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20161207212352) do
   create_table "playlist_songs", force: :cascade do |t|
     t.integer "playlist_id"
     t.integer "song_id"
-    t.integer "owner_id"
   end
 
   create_table "playlists", force: :cascade do |t|
