@@ -11,7 +11,7 @@ class SharedPlaylists extends Component {
 
   render() {
     let buttonList = this.props.playlists.map(playlist => {
-      return <button key={playlist.id} className="button-primary" onClick={this.changePlaylist.bind(this, playlist.id)}>{playlist.name}</button>
+      return <button key={playlist.id} className="btn btn-success" onClick={this.changePlaylist.bind(this, playlist.id)}>{playlist.name}</button>
     })
     return(
       <div>

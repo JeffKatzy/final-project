@@ -44,7 +44,7 @@ class Signup extends Component {
           <label> Password</label>
           <input type="password" className="u-full-width" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
 
-          <input type="submit" className="button-primary" />
+          <input type="submit" className="btn btn-success" />
 
         </form>
       </div>

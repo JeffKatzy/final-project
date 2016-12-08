@@ -28,9 +28,9 @@ class HomePage extends Component {
   render(){
     return(
       <div>
-        <p onClick={this.props.handleLogout}><Link to={'/'} className="button button-primary">SignOut</Link></p>
+        <p onClick={this.props.handleLogout}><Link to={'/'} className="button btn btn-success">SignOut</Link></p>
         <div><input type="text" name="invite-email" placeholder="invite a friend via email" onChange={this.getEmail.bind(this)} />
-        <button className="button-primary" onClick={this.handleInvite.bind(this)}>Invite</button></div>
+        <button className="btn btn-success" onClick={this.handleInvite.bind(this)}>Invite</button></div>
         <SongSearchBar />
         <SongResults />
         <Playlist />

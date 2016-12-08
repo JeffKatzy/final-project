@@ -34,7 +34,7 @@ class Signin extends Component {
                 <input type="text" id="email" className="u-full-width" placeholder="enter email" onChange={this.handleEmail.bind(this)}/>
                 <label> Password</label>
                 <input type="password" id="password" className="u-full-width" placeholder="enter password" onChange={this.handlePassword.bind(this)}/>
-                <input type="submit" className="button-primary" />
+                <input type="submit" className="btn btn-success" />
               </form>
             </div>
           </div>
