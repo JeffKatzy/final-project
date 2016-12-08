@@ -22,8 +22,8 @@ class SongsController < ApplicationController
   end
 
   def search
-    SpotifyAPI.search(song_params[:search_term])
-    render json: {songResults: response.tracks.items}
+    result = SpotifyAPI.search(song_params[:search_term])
+    render json: {songResults: result}
   end
 
   private
