@@ -1,20 +1,21 @@
-import React from 'react'
-// import { Link } from 'react-router'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import getPlaylist from '../actions/getPlaylist'
 
-function sharedPlaylists() {
-  constructor(props) {
-    super(props)
-    this.changePlaylist = this.changePlaylist.bind(this)
-  }
+class SharedPlaylists extends Component {
+  // constructor(props) {
+  //   super(props)
+  // }
 
-  changePlaylist() {
-    
+  changePlaylist(event) {
+    this.props.getPlaylist(event)
   }
 
 
   render() {
     let buttonList = this.props.playlists.map(playlist => {
-      return <button className="button-primary" onClick={changePlaylist}>{playlist.name}</button>
+      return <button className="button-primary" onClick={this.changePlaylist.bind(this, playlist.id)}>{playlist.name}</button>
     })
     return(
       <div>
@@ -24,4 +25,12 @@ function sharedPlaylists() {
   }
 }
 
-export default sharedPlaylists
+function mapStateToProps(state) {
+  return {playlist: state.playlist, playlists: state.playlists}
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ getPlaylist }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SharedPlaylists)

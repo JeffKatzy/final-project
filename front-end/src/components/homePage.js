@@ -3,29 +3,38 @@ import { Link } from 'react-router'
 import SongSearchBar from './songSearchBar'
 import SongResults from './songResults'
 import Playlist from './playlist'
+import SharedPlaylists from './sharedPlaylists'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import inviteUser from '../actions/inviteUser'
 
 class HomePage extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.handleInvite = this.handleInvite.bind(this)
+    this.state = {invite: ''}
   }
 
-  handleInvite(event) {
-    this.props.inviteUser(event)
+  handleInvite() {
+    event.preventDefault()
+    this.props.inviteUser(this.state.invite)
+    document.getElementsByName("invite-email")[0].value = ""
+    alert("Friend invited!")
+  }
+
+  getEmail(event) {
+    this.setState({invite: event.target.value})
   }
 
   render(){
     return(
       <div>
         <p onClick={this.props.handleLogout}><Link to={'/'} className="button button-primary">SignOut</Link></p>
-        <div><input type="text" name="invite-email" placeholder="invite a friend via email" /><button className="button-primary" onClick={this.handleInvite}>Invite</button></div>
+        <div><input type="text" name="invite-email" placeholder="invite a friend via email" onChange={this.getEmail.bind(this)} />
+        <button className="button-primary" onClick={this.handleInvite.bind(this)}>Invite</button></div>
         <SongSearchBar />
         <SongResults />
         <Playlist />
+        <SharedPlaylists />
       </div>)
   }
 }

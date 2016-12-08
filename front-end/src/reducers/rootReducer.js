@@ -39,6 +39,16 @@ function playlist(state = [], action) {
   }
 }
 
+function playlists(state = [], action) {
+  switch (action.type) {
+  case 'GET_PLAYLIST':
+    return action.playlists
+  default:
+    return state;
+  }
+}
+
+
 function showWelcome(state = true, action) {
   switch (action.type) {
   case 'LOGIN_USER':
@@ -50,4 +60,4 @@ function showWelcome(state = true, action) {
   }
 }
 
-export default combineReducers({user, songResults, playlist, showWelcome})
+export default combineReducers({user, songResults, playlist, showWelcome, playlists})

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 export default function getPlaylist(id) {
+  debugger
   return function(dispatch){
     $.ajax({
       url: `http://localhost:3000/playlists/${id}/`,
@@ -9,7 +10,7 @@ export default function getPlaylist(id) {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
-      dispatch({type: 'GET_PLAYLIST', playlist: response.playlist, playlists: })
+      dispatch({type: 'GET_PLAYLIST', playlist: response.playlist, playlists: response.playlists})
     })
   }
 }
