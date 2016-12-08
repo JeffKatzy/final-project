@@ -30,6 +30,8 @@ function playlist(state = [], action) {
     return action.playlist
   case 'GET_PLAYLIST':
     return action.playlist
+  case 'DESTROY_PLAYLIST':
+    return action.playlist
   case 'LOGOUT_USER':
     return []
   default:

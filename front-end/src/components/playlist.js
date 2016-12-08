@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import destroySong from '../actions/destroySong'
 import getPlaylist from '../actions/getPlaylist'
+import destroyPlaylist from '../actions/destroyPlaylist'
 
 class Playlist extends Component {
   componentWillMount() {
@@ -11,6 +12,10 @@ class Playlist extends Component {
 
   handleDestroy(event) {
     this.props.destroySong(event)
+  }
+
+  handleClear() {
+    this.props.destroyPlaylist()
   }
 
 
@@ -25,6 +30,7 @@ class Playlist extends Component {
     return(
       <div className="playlist-time">
         <h4>Playlist</h4>
+        <button className="button button-primary" onClick={this.handleClear.bind(this)}>Delete Playlist</button>
         <ul>
           {songs}
         </ul>
@@ -38,7 +44,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ destroySong, getPlaylist }, dispatch)
+  return bindActionCreators({ destroySong, getPlaylist, destroyPlaylist }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist)
