@@ -4,8 +4,11 @@ import { bindActionCreators } from 'redux'
 import destroySong from '../actions/destroySong'
 import getPlaylist from '../actions/getPlaylist'
 import destroyPlaylist from '../actions/destroyPlaylist'
+import SongPlayer from './songPlayer'
+
 
 class Playlist extends Component {
+
   componentWillMount() {
     this.props.getPlaylist(this.props.user)
   }
@@ -18,7 +21,6 @@ class Playlist extends Component {
     this.props.destroyPlaylist()
   }
 
-
   render() {
     let songs = this.props.playlist.map(song => {
       return (
@@ -29,6 +31,7 @@ class Playlist extends Component {
 
     return(
       <div className="playlist-time">
+        <SongPlayer playlist={this.props.playlist} />
         <h4>Playlist</h4>
         <button className="button button-primary" onClick={this.handleClear.bind(this)}>Delete Playlist</button>
         <ul>

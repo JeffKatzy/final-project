@@ -4,10 +4,6 @@ import { bindActionCreators } from 'redux'
 import getPlaylist from '../actions/getPlaylist'
 
 class SharedPlaylists extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
   changePlaylist(event) {
     this.props.getPlaylist(event)
   }
@@ -15,7 +11,7 @@ class SharedPlaylists extends Component {
 
   render() {
     let buttonList = this.props.playlists.map(playlist => {
-      return <button className="button-primary" onClick={this.changePlaylist.bind(this, playlist.id)}>{playlist.name}</button>
+      return <button key={playlist.id} className="button-primary" onClick={this.changePlaylist.bind(this, playlist.id)}>{playlist.name}</button>
     })
     return(
       <div>

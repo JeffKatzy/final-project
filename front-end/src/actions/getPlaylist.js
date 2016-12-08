@@ -1,7 +1,6 @@
 import $ from 'jquery';
 
 export default function getPlaylist(id) {
-  debugger
   return function(dispatch){
     $.ajax({
       url: `http://localhost:3000/playlists/${id}/`,
