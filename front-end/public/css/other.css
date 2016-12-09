@@ -17,3 +17,9 @@ body {
 li {
   list-style-type: none;
 }
+
+#musicPlayer {
+  position: static;
+  top: 20%;
+  left: 30%;
+}

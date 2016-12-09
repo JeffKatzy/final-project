@@ -31,7 +31,10 @@ class Playlist extends Component {
 
     return(
       <div className="playlist-time">
-        <SongPlayer playlist={this.props.playlist} />
+        <div id="musicPlayer">
+          <SongPlayer playlist={this.props.playlist} />
+        </div>
+
         <h4>Playlist</h4>
         <button className="button btn btn-success" onClick={this.handleClear.bind(this)}>Delete Playlist</button>
         <ul>
