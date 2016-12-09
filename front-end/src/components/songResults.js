@@ -11,18 +11,22 @@ class SongResults extends Component {
   }
 
   render() {
-    let songs = this.props.songs.map(song => {return (<div key={song.id}><li>{song.name} - {song.album.name}, {song.artists[0].name}</li><button className="button button-primary" onClick={this.handleAdd.bind(this, song)}>Add to Playlist</button></div>)})
+    let songs = this.props.songs.map(song => {return (
+      <tr key={song.id}><td><span className="glyphicon glyphicon-plus" onClick={this.handleAdd.bind(this, song)}></span></td><td>{song.name}</td><td>{song.album.name}</td><td>{song.artists[0].name}</td></tr>)})
 
     return(
-      <div className="song-search-results">
-        <ul>
-        {songs}
-        </ul>
+      <div className="row">
+        <div className="col-md-8 col-md-push-2">
+          <table className="table table-hover">
+            <tbody>
+              {songs}
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }
 }
-
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addSong }, dispatch)

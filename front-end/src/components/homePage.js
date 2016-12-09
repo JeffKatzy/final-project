@@ -17,8 +17,8 @@ class HomePage extends Component {
   handleInvite() {
     event.preventDefault()
     this.props.createGroup(this.state.invite, this.state.groupName)
-    document.getElementsByName("invite-username")[0].value = ""
-    document.getElementsByName("group-name")[0].value = ""
+    document.getElementsById("invite-username").value = ""
+    document.getElementsById("group-name").value = ""
 
   }
 
@@ -33,12 +33,21 @@ class HomePage extends Component {
   render(){
     return(
       <div>
-        <p onClick={this.props.handleLogout}><Link to={'/'} className="button button-primary">SignOut</Link></p>
-        <div>
-        <label>Invite your friends:</label>
-        <input type="text" name="group-name" placeholder="group name" onChange={this.handleGroupName.bind(this)} />
-        <input type="text" name="invite-username" placeholder="user1, user2, user3" onChange={this.handleUsernames.bind(this)} />
-        <button className="button-primary" onClick={this.handleInvite.bind(this)}>Invite</button></div>
+        <p onClick={this.props.handleLogout}><Link to={'/'} className="button btn btn-success">SignOut</Link></p>
+
+        <div className="row">
+          <div className="col-md-4 col-md-push-4">
+            <div className="input-group">
+              <label>Invite your friends:</label>
+              <input type="text" id="group-name" className="form-control" placeholder="group name" onChange={this.handleGroupName.bind(this)} /> &nbsp;
+              <input type="text" id="invite-username" className="form-control" placeholder="user1, user2, user3" onChange={this.handleUsernames.bind(this)} />
+              <span className="input-group-btn">
+                <button className="btn btn-success" type="button" onClick={this.handleInvite.bind(this)}>Invite</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
         <SongSearchBar />
         <SongResults />
         <Groups />

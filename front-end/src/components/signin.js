@@ -27,16 +27,30 @@ class Signin extends Component {
       <div className="login">
         <div className="not-container">
           <div className="row">
-            <div className="four columns offset-by-four">
-              <h4>Sign In</h4>
-              <form onSubmit={this.handleSubmit.bind(this)}>
-                <label> Email</label>
-                <input type="text" id="email" className="u-full-width" placeholder="enter email" onChange={this.handleEmail.bind(this)}/>
-                <label> Password</label>
-                <input type="password" id="password" className="u-full-width" placeholder="enter password" onChange={this.handlePassword.bind(this)}/>
-                <input type="submit" className="button-primary" />
-              </form>
-            </div>
+            <h4>Sign In</h4>
+
+            <form className="form-horizontal" onSubmit={this.handleSubmit.bind(this)}>
+              <div className="col-md-6 col-md-push-3">
+
+                <div className="form-group">
+                  <label htmlFor="loginEmail" className="col-sm-2 control-label">Email</label>
+                  <div className="col-sm-10">
+                    <input type="email" className="form-control" onChange={this.handleEmail.bind(this)} id="loginEmail" placeholder="Email" />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="loginPassword" className="col-sm-2 control-label">Password</label>
+                  <div className="col-sm-10">
+                    <input type="password" className="form-control" onChange={this.handlePassword.bind(this)} id="loginPassword" placeholder="Password" />
+                  </div>
+                </div>
+
+                <button type="submit" className="btn btn-success">Sign in</button>
+
+              </div>
+            </form>
+
           </div>
         </div>
       </div>
