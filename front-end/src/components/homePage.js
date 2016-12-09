@@ -11,16 +11,22 @@ import createGroup from '../actions/createGroup'
 class HomePage extends Component {
   constructor(props) {
     super(props)
-    this.state = {invite: ''}
+    this.state = {invite: '', groupName: ''}
   }
 
   handleInvite() {
     event.preventDefault()
-    this.props.createGroup(this.state.invite)
+    this.props.createGroup(this.state.invite, this.state.groupName)
     document.getElementsByName("invite-username")[0].value = ""
+    document.getElementsByName("group-name")[0].value = ""
+
   }
 
-  loginUsernames(event) {
+  handleGroupName(event) {
+    this.setState({groupName: event.target.value})
+  }
+
+  handleUsernames(event) {
     this.setState({invite: event.target.value})
   }
 
@@ -30,7 +36,8 @@ class HomePage extends Component {
         <p onClick={this.props.handleLogout}><Link to={'/'} className="button button-primary">SignOut</Link></p>
         <div>
         <label>Invite your friends:</label>
-        <input type="text" name="invite-username" placeholder="user1, user2, user3" onChange={this.loginUsernames.bind(this)} />
+        <input type="text" name="group-name" placeholder="group name" onChange={this.handleGroupName.bind(this)} />
+        <input type="text" name="invite-username" placeholder="user1, user2, user3" onChange={this.handleUsernames.bind(this)} />
         <button className="button-primary" onClick={this.handleInvite.bind(this)}>Invite</button></div>
         <SongSearchBar />
         <SongResults />

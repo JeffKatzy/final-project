@@ -1,11 +1,11 @@
 import $ from 'jquery';
 
-export default function createGroup(formData) {
+export default function createGroup(users, name) {
   return function(dispatch) {
     $.ajax({
       url: `http://localhost:3000/groups/`,
       type: 'POST',
-      data: JSON.stringify({token: localStorage.token, group: {users: formData}}),
+      data: JSON.stringify({token: localStorage.token, group: {users: users, name: name}}),
       contentType:"application/json; charset=utf-8",
       dataType: 'json'
     }).done(response => {

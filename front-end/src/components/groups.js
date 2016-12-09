@@ -11,9 +11,8 @@ class Groups extends Component {
 
 
   render() {
-    debugger
     let buttonList = this.props.groups.map(group => {
-      if (group.group_id !== this.props.group.id) {
+      if (group.group_id !== parseInt(this.props.group)) {
         return (<button key={group.group_id} className="button-primary" onClick={this.changeGroup.bind(this, group.group_id)}>{group.group_name}</button>)
       }
     })
