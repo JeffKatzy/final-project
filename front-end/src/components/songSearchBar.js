@@ -21,11 +21,16 @@ class SongSearchBar extends Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.handleSongSearch.bind(this)}>
-          <label> Song Name:</label>
-          <input type="text" placeholder="enter song name" onChange={this.handleSongNameChange.bind(this)} />
-          <input className="btn btn-success" type="submit" />
-        </form>
+
+        <div className="col-md-4 col-md-push-4">
+          <form onSubmit={this.handleSongSearch.bind(this)} className="input-group">
+            <input type="text" className="form-control" placeholder="Search songs..." onChange={this.handleSongNameChange.bind(this)} />
+            <span className="input-group-btn">
+              <input className="btn btn-success" type="submit" value="Search" />
+            </span>
+          </form>
+        </div>
+
       </div>
     )
   }
