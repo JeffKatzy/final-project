@@ -27,22 +27,30 @@ class Signin extends Component {
       <div className="login">
         <div className="not-container">
           <div className="row">
-            <div className="four columns offset-by-four">
-              <h4>Sign In</h4>
+            <h4>Sign In</h4>
 
-              <form className="form-inline" onSubmit={this.handleSubmit.bind(this)}>
+            <form className="form-horizontal" onSubmit={this.handleSubmit.bind(this)}>
+              <div className="col-md-6 col-md-push-3">
+
                 <div className="form-group">
-                  <label className="sr-only" htmlFor="signinEmail">Email address</label>
-                  <input type="email" className="form-control" onChange={this.handleEmail.bind(this)} id="exampleInputEmail3" placeholder="Email" />
+                  <label htmlFor="loginEmail" className="col-sm-2 control-label">Email</label>
+                  <div className="col-sm-10">
+                    <input type="email" className="form-control" onChange={this.handleEmail.bind(this)} id="loginEmail" placeholder="Email" />
+                  </div>
                 </div>
+
                 <div className="form-group">
-                  <label className="sr-only" htmlFor="signinPassword">Password</label>
-                  <input type="password" className="form-control" onChange={this.handlePassword.bind(this)} id="signinPassword" placeholder="Password" />
+                  <label htmlFor="loginPassword" className="col-sm-2 control-label">Password</label>
+                  <div className="col-sm-10">
+                    <input type="password" className="form-control" onChange={this.handlePassword.bind(this)} id="loginPassword" placeholder="Password" />
+                  </div>
                 </div>
+
                 <button type="submit" className="btn btn-success">Sign in</button>
-              </form>
 
-            </div>
+              </div>
+            </form>
+
           </div>
         </div>
       </div>
