@@ -9,13 +9,16 @@ class GroupsController < ApplicationController
     end
 
     def show
+      groups = current_user.groups.map do |group|
+        {group_id: group.id, group_name: group.name}
+      end
       if current_user.groups.include?(current_group)
-        render json: {playlist: current_group.songs, chat: current_group.messages}
+        render json: {groups: groups, playlist: current_group.songs, chat: current_group.messages, group: params[:id]}
       end
     end
 
     def create
-      group = Group.create()
+      group = Group.create(name: group_params[:name])
       group.users << current_user
       invitees = group_params[:users].split(", ")
       groups = current_user.groups.map do |group|
@@ -37,7 +40,7 @@ class GroupsController < ApplicationController
 
     private
     def group_params
-      params.require(:group).permit(:id, :user_id, :users)
+      params.require(:group).permit(:id, :user_id, :users, :name)
     end
 
     def current_user

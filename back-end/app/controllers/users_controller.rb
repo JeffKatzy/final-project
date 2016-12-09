@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find_by(email: user_params[:email])
-    if user.authenticate(user_params[:password])
+    if user && user.authenticate(user_params[:password])
       jwt = Auth.issue({user_id: user.id})
       groups = user.groups.map do |group|
         {group_id: group.id, group_name: group.name}
