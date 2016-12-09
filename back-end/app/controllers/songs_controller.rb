@@ -4,21 +4,17 @@ class SongsController < ApplicationController
 
   def create
     song = Song.new(song_params)
-    user_id = Auth.decode(params['token'])["user_id"]
-    playlist = Playlist.find(user_id)
-    song.playlists << playlist
+    current_group.songs << song
     if song.save
-      render json: {playlist: playlist.songs}
+      render json: {playlist: current_group.songs}
     else
       render json: {error: 'song does not exist'}
     end
   end
 
   def destroy
-    user_id = Auth.decode(params['token'])["user_id"]
-    playlist = Playlist.find(user_id)
-    playlist.songs.delete(Song.find(params[:id]))
-    render json: {playlist: playlist.songs}
+    current_group.songs.delete(Song.find(params[:id]))
+    render json: {playlist: current_group.songs}
   end
 
   def search
@@ -28,7 +24,20 @@ class SongsController < ApplicationController
 
   private
     def song_params
-      params.require(:song).permit(:name, :artist, :album, :spotify_id, :duration, :id, :search_term)
+      params.require(:song).permit(:name, :artist, :album, :spotify_id, :search_term)
     end
+
+    def group_params
+      params.require(:user).permit(:group)
+    end
+
+    def current_group
+      Group.find(group_params[:group])
+    end
+
+    def current_user
+      User.find(Auth.decode(params['token'])["user_id"])
+    end
+
 
 end

@@ -1,37 +1,27 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, :only => [:new, :create, :login]
+  skip_before_action :authenticate_user, :only => [:new, :create, :show]
 
   def show
-    user = User.find(params[:id])
-    jwt = Auth.issue({user_id: user.id})
-    render json: {jwt: jwt}
+    user = User.find_by(email: user_params[:email])
+    if user.authenticate(user_params[:password])
+      jwt = Auth.issue({user_id: user.id})
+      groups = user.groups.map do |group|
+        {group.id =>  {playlist: group.songs, chat: group.messages, group_name: group.name}}
+      end
+      render json: {jwt: jwt, user_id: user.id, groups: groups, group: user.groups.first.id, playlist: user.groups.first.songs}
+    end
   end
 
   def create
     user = User.new(user_params)
     if user.save
+      user.groups << Group.create(name: user_params[:name])
       jwt = Auth.issue({user_id: user.id})
-      user.playlists << Playlist.create(user_id: user.id)
       user.save
-      render json: {jwt: jwt, userId: user.id}
+      render json: {jwt: jwt, user_id: user.id, group: user.groups.first.id}
     else
-      render json: {error: 'user not unique'}
+      render json: {error: 'Username is not unique. Please choose another.'}
     end
-  end
-
-  def login
-    user = User.find_by(email: user_params[:email])
-    if user.authenticate(user_params[:password])
-      jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, userId: user.id}
-    else
-      render json: {error: 'user not unique'}
-    end
-  end
-
-  def index
-    users = User.all
-    render json: {users: users}
   end
 
   private

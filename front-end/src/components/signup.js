@@ -35,8 +35,8 @@ class Signup extends Component {
         <h4>Sign Up</h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
 
-          <label> Name</label>
-          <input type="text" className="u-full-width" placeholder="enter name" onChange={this.handleNameChange.bind(this)}/>
+          <label> Username</label>
+          <input type="text" className="u-full-width" placeholder="enter username" onChange={this.handleNameChange.bind(this)}/>
 
           <label> Email</label>
           <input type="text" className="u-full-width" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>

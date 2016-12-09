@@ -2,23 +2,19 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import destroySong from '../actions/destroySong'
-import getPlaylist from '../actions/getPlaylist'
+import getGroup from '../actions/getGroup'
 import destroyPlaylist from '../actions/destroyPlaylist'
 import SongPlayer from './songPlayer'
 
 
 class Playlist extends Component {
 
-  componentWillMount() {
-    this.props.getPlaylist(this.props.user)
-  }
-
   handleDestroy(event) {
-    this.props.destroySong(event)
+    this.props.destroySong(event, this.props.group)
   }
 
   handleClear() {
-    this.props.destroyPlaylist()
+    this.props.destroyPlaylist(this.props.group, this.props.user)
   }
 
   render() {
@@ -43,11 +39,11 @@ class Playlist extends Component {
 }
 
 function mapStateToProps(state) {
-  return {playlist: state.playlist, user: state.user}
+  return {playlist: state.playlist, user: state.user, group: state.group}
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ destroySong, getPlaylist, destroyPlaylist }, dispatch)
+  return bindActionCreators({ destroySong, getGroup, destroyPlaylist }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist)

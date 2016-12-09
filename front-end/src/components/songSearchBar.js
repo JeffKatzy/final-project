@@ -6,11 +6,11 @@ import { bindActionCreators } from 'redux'
 class SongSearchBar extends Component {
   constructor(props) {
     super(props)
-    this.state = {name: ''}
+    this.state = {searchName: ''}
   }
 
   handleSongNameChange(event) {
-    this.setState({name: event.target.value})
+    this.setState({searchName: event.target.value})
   }
 
   handleSongSearch(event) {
@@ -23,7 +23,7 @@ class SongSearchBar extends Component {
       <div>
         <form onSubmit={this.handleSongSearch.bind(this)}>
           <label> Song Name:</label>
-          <input type="text" placeholder="enter song name" onChange={this.handleSongNameChange.bind(this)} />
+          <input type="text" placeholder="Search for a song" onChange={this.handleSongNameChange.bind(this)} />
           <input className="button-primary" type="submit" />
         </form>
       </div>

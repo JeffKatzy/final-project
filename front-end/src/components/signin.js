@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import getUser from '../actions/getUser'
+import loginUser from '../actions/loginUser'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -19,7 +19,7 @@ class Signin extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.getUser(this.state)
+    this.props.loginUser(this.state)
   }
 
   render(){
@@ -45,7 +45,7 @@ class Signin extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ getUser }, dispatch)
+  return bindActionCreators({ loginUser }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(Signin)

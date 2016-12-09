@@ -5,7 +5,7 @@ export default function findSong(formData) {
     $.ajax({
       url: `http://localhost:3000/search`,
       type: 'POST',
-      data: JSON.stringify({token: localStorage.token, song: {search_term: formData.name}}),
+      data: JSON.stringify({token: localStorage.token, song: {search_term: formData.searchName}}),
       contentType:"application/json; charset=utf-8",
       dataType: 'json'
     }).done(response => {

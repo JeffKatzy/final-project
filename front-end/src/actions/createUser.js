@@ -10,9 +10,14 @@ export default function createUser(formData){
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
+      if (response.error) {
+        alert(response.error)
+      } else {
+        debugger
       localStorage.setItem('token', response.jwt)
-      dispatch({type: 'LOGIN_USER', user: response.userId})
+      dispatch({type: 'LOGIN_USER', user: response.user_id, group: response.group})
       browserHistory.push('/homepage')
+      }
     })
   }
 }
