@@ -29,13 +29,19 @@ class Signin extends Component {
           <div className="row">
             <div className="four columns offset-by-four">
               <h4>Sign In</h4>
-              <form onSubmit={this.handleSubmit.bind(this)}>
-                <label> Email</label>
-                <input type="text" id="email" className="u-full-width" placeholder="enter email" onChange={this.handleEmail.bind(this)}/>
-                <label> Password</label>
-                <input type="password" id="password" className="u-full-width" placeholder="enter password" onChange={this.handlePassword.bind(this)}/>
-                <input type="submit" className="btn btn-success" />
+
+              <form className="form-inline" onSubmit={this.handleSubmit.bind(this)}>
+                <div className="form-group">
+                  <label className="sr-only" for="signinEmail">Email address</label>
+                  <input type="email" className="form-control" onChange={this.handleEmail.bind(this)} id="exampleInputEmail3" placeholder="Email" />
+                </div>
+                <div className="form-group">
+                  <label className="sr-only" for="signinPassword">Password</label>
+                  <input type="password" className="form-control" onChange={this.handlePassword.bind(this)} id="signinPassword" placeholder="Password" />
+                </div>
+                <button type="submit" className="btn btn-success">Sign in</button>
               </form>
+
             </div>
           </div>
         </div>
