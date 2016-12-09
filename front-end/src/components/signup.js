@@ -32,21 +32,39 @@ class Signup extends Component {
       <div className="not-container">
       <div className="row">
       <div className="four columns offset-by-four">
-        <h4>Sign Up</h4>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <h4>Create an account</h4>
 
-          <label> Name</label>
-          <input type="text" className="u-full-width" placeholder="enter name" onChange={this.handleNameChange.bind(this)}/>
+        <form className="form-horizontal" onSubmit={this.handleSubmit.bind(this)}>
+          <div className="col-md-6 col-md-push-3">
+            <div className="form-group">
+              <label htmlFor="createName" className="col-sm-2 control-label">Name</label>
+              <div className="col-sm-10">
+                <input type="text" className="form-control" id="creatName" placeholder="Name" onChange={this.handleNameChange.bind(this)} />
+              </div>
+            </div>
 
-          <label> Email</label>
-          <input type="text" className="u-full-width" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
+            <div className="form-group">
+              <label htmlFor="createEmail" className="col-sm-2 control-label">Email</label>
+              <div className="col-sm-10">
+                <input type="email" className="form-control" id="createEmail" placeholder="Email" onChange={this.handleEmailChange.bind(this)} />
+              </div>
+            </div>
 
-          <label> Password</label>
-          <input type="password" className="u-full-width" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
+            <div className="form-group">
+              <label htmlFor="createPassword" className="col-sm-2 control-label">Password</label>
+              <div className="col-sm-10">
+                <input type="password" className="form-control" id="createPassword" placeholder="Password" onChange={this.handlePasswordChange.bind(this)} />
+              </div>
+            </div>
 
-          <input type="submit" className="btn btn-success" />
-
+            <div className="form-group">
+              <div className="col-sm-offset-2 col-sm-10">
+                <button type="submit" className="btn btn-success">Create account</button>
+              </div>
+            </div>
+          </div>
         </form>
+
       </div>
       </div>
       </div>

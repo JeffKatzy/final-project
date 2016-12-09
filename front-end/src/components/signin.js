@@ -32,11 +32,11 @@ class Signin extends Component {
 
               <form className="form-inline" onSubmit={this.handleSubmit.bind(this)}>
                 <div className="form-group">
-                  <label className="sr-only" for="signinEmail">Email address</label>
+                  <label className="sr-only" htmlFor="signinEmail">Email address</label>
                   <input type="email" className="form-control" onChange={this.handleEmail.bind(this)} id="exampleInputEmail3" placeholder="Email" />
                 </div>
                 <div className="form-group">
-                  <label className="sr-only" for="signinPassword">Password</label>
+                  <label className="sr-only" htmlFor="signinPassword">Password</label>
                   <input type="password" className="form-control" onChange={this.handlePassword.bind(this)} id="signinPassword" placeholder="Password" />
                 </div>
                 <button type="submit" className="btn btn-success">Sign in</button>

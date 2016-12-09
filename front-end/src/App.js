@@ -29,12 +29,21 @@ class App extends Component {
     })
 
     return (
-      <div className="App">
-        <div className="container">
-          <div className="jumbotron">
-            <h1>DayJams</h1>
-            {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
-            {childrenWithExtraProp}
+      <div className="everything">
+        <div className="Navbar">
+          <div className="navbar navbar-default">
+            <div className="container-fluid">
+              <a className="navbar-brand" href="#">DayJams</a>
+            </div>
+          </div>
+        </div>
+        <div className="App">
+          <div className="container">
+            <div className="jumbotron">
+              <h1>DayJams</h1>
+              {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
+              {childrenWithExtraProp}
+            </div>
           </div>
         </div>
       </div>
