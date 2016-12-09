@@ -20,8 +20,7 @@ class SongSearchBar extends Component {
 
   render() {
     return(
-      <div>
-
+      <div className="row">
         <div className="col-md-4 col-md-push-4">
           <form onSubmit={this.handleSongSearch.bind(this)} className="input-group">
             <input type="text" className="form-control" placeholder="Search songs..." onChange={this.handleSongNameChange.bind(this)} />
@@ -30,7 +29,6 @@ class SongSearchBar extends Component {
             </span>
           </form>
         </div>
-
       </div>
     )
   }

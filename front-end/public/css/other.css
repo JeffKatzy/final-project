@@ -5,18 +5,15 @@ body {
   background-position: center;
 }
 
-/*.song-search-results, .playlist-time {
-  padding-top: 8px;
-  color: #000000;
-}*/
-
 .container {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
 }
 
+.jumbotron {
+  background-color: transparent;
+}
+
 li {
   list-style-type: none;
 }
-
-/* round edges of div */
