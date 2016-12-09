@@ -17,8 +17,8 @@ class HomePage extends Component {
   handleInvite() {
     event.preventDefault()
     this.props.createGroup(this.state.invite, this.state.groupName)
-    document.getElementsById("invite-username").value = ""
-    document.getElementsById("group-name").value = ""
+    document.getElementById("invite-username").value = ""
+    document.getElementById("group-name").value = ""
 
   }
 

@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      user.groups << Group.create(name: user_params[:name])
+      group =  Group.create(name: user_params[:name])
+      group.songs << Song.new(name: "One Night", artist: "Lil Yachty", album: "Lil Boat", spotify_id: "40yJGQyEaBbIkXpwMFkXip", group_id: group.id)
+      user.groups << group
       groups = user.groups.map do |group|
         {group_id: group.id, group_name: group.name}
       end
