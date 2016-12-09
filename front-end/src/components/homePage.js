@@ -29,8 +29,18 @@ class HomePage extends Component {
     return(
       <div>
         <p onClick={this.props.handleLogout}><Link to={'/'} className="button btn btn-success">SignOut</Link></p>
-        <div><input type="text" name="invite-email" placeholder="invite a friend via email" onChange={this.getEmail.bind(this)} />
-        <button className="btn btn-success" onClick={this.handleInvite.bind(this)}>Invite</button></div>
+
+        <div className="row">
+          <div className="col-md-4 col-md-push-4">
+            <div className="input-group">
+              <input type="text" className="form-control" placeholder="Invite a friend via email..." onChange={this.getEmail.bind(this)} />
+              <span className="input-group-btn">
+                <button className="btn btn-success" type="button" onClick={this.handleInvite.bind(this)}>Invite</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
         <SongSearchBar />
         <SongResults />
         <Playlist />
