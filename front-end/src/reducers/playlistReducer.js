@@ -6,6 +6,8 @@ export default function playlist(state = [], action) {
     return action.playlist
   case 'DESTROY_SONG':
     return action.playlist
+  case 'CREATE_GROUP':
+    return action.playlist
   case 'GET_GROUP':
     return action.playlist
   case 'DESTROY_PLAYLIST':

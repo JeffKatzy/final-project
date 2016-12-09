@@ -4,6 +4,8 @@ export default function group(state = null, action) {
     return action.group
   case 'CREATE_USER':
     return action.group
+  case 'CREATE_GROUP':
+    return action.group
   case 'LOGOUT_USER':
     return null
   default:

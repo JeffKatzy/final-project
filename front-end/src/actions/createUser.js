@@ -13,10 +13,9 @@ export default function createUser(formData){
       if (response.error) {
         alert(response.error)
       } else {
-        debugger
-      localStorage.setItem('token', response.jwt)
-      dispatch({type: 'LOGIN_USER', user: response.user_id, group: response.group})
-      browserHistory.push('/homepage')
+        localStorage.setItem('token', response.jwt)
+        dispatch({type: 'LOGIN_USER', user: response.user_id, group: response.group, playlist: response.playlist, chat: response.chat, groups: response.groups})
+        browserHistory.push('/homepage')
       }
     })
   }

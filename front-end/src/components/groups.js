@@ -4,19 +4,22 @@ import { bindActionCreators } from 'redux'
 import getGroup from '../actions/getGroup'
 
 class Groups extends Component {
-  changePlaylist(event) {
+  changeGroup(event) {
     this.props.getGroup(event)
+    document.getElementsByClassName("group-selector")[0].value = ""
   }
 
 
   render() {
+    debugger
     let buttonList = this.props.groups.map(group => {
-      if (group.id !== this.props.group.id) {
-        return <button key={group.id} className="button-primary" onClick={this.changeGroup.bind(this, group.id)}>{group.name}</button>
+      if (group.group_id !== this.props.group.id) {
+        return (<button key={group.group_id} className="button-primary" onClick={this.changeGroup.bind(this, group.group_id)}>{group.group_name}</button>)
       }
     })
+
     return(
-      <div>
+      <div className="group-selector">
         {buttonList}
       </div>
     )

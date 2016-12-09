@@ -6,7 +6,7 @@ import SongSearchBar from './songSearchBar'
 import SongResults from './songResults'
 import Playlist from './playlist'
 import Groups from './groups'
-import inviteUser from '../actions/inviteUser'
+import createGroup from '../actions/createGroup'
 
 class HomePage extends Component {
   constructor(props) {
@@ -16,9 +16,8 @@ class HomePage extends Component {
 
   handleInvite() {
     event.preventDefault()
-    this.props.inviteUser(this.state.invite)
+    this.props.createGroup(this.state.invite)
     document.getElementsByName("invite-username")[0].value = ""
-    alert("Friend invited!")
   }
 
   loginUsernames(event) {
@@ -29,18 +28,21 @@ class HomePage extends Component {
     return(
       <div>
         <p onClick={this.props.handleLogout}><Link to={'/'} className="button button-primary">SignOut</Link></p>
-        <div><input type="text" name="invite-username" placeholder="invite friends by username" onChange={this.loginUsernames.bind(this)} />
+        <div>
+        <label>Invite your friends:</label>
+        <input type="text" name="invite-username" placeholder="user1, user2, user3" onChange={this.loginUsernames.bind(this)} />
         <button className="button-primary" onClick={this.handleInvite.bind(this)}>Invite</button></div>
         <SongSearchBar />
         <SongResults />
-        <Playlist />
         <Groups />
+        <Playlist />
+
       </div>)
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ inviteUser }, dispatch)
+  return bindActionCreators({ createGroup }, dispatch)
 }
 
 // function mapStateToProps(state) {

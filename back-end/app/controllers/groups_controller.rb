@@ -10,20 +10,21 @@ class GroupsController < ApplicationController
 
     def show
       if current_user.groups.include?(current_group)
-        render json: {playlist: group.songs, chat: group.messages}
+        render json: {playlist: current_group.songs, chat: current_group.messages}
       end
     end
 
-    def new
-      invitees = invite_params[:email].map(email => User.find_by(email: email))
-      group = Group.new()
-
-      if invitee == nil
-        render json: {error: "Sorry, this user is lame and doesn't have a DayJams account."}
+    def create
+      group = Group.create()
+      group.users << current_user
+      invitees = group_params[:users].split(", ")
+      groups = current_user.groups.map do |group|
+        {group_id: group.id, group_name: group.name}
+      end
+      if invitees.each{|name| group.users << User.find_by(name: name)}
+        render json: {playlist: group.songs, chat: group.messages, group: group.id, groups: groups}
       else
-        current_user.groups << group
-        invitee.groups << group
-        render json: {playlist: group.songs, chat: group.messages}
+        render json: {error: "Please invite current users by username."}
       end
     end
 
@@ -35,12 +36,8 @@ class GroupsController < ApplicationController
     end
 
     private
-    def invite_params
-      params.require(:invite).permit(:email)
-    end
-
     def group_params
-      params.require(:group).permit(:id, :user_id)
+      params.require(:group).permit(:id, :user_id, :users)
     end
 
     def current_user
