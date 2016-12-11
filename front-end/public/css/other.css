@@ -22,9 +22,10 @@ body {
   background-color: transparent;
 }
 
-/*.song-results-table {
-
-}*/
+.song-results-table {
+  max-height: 360px;
+  overflow-y: auto;
+}
 
 /*.big-container {
   padding: 5px;
