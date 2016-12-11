@@ -16,6 +16,7 @@ class SongSearchBar extends Component {
   handleSongSearch(event) {
     event.preventDefault()
     this.props.findSong(this.state)
+    document.getElementById("song-search").value = ""
   }
 
   render() {
@@ -23,7 +24,7 @@ class SongSearchBar extends Component {
       <div className="row">
         <div className="col-md-4 col-md-push-4">
           <form onSubmit={this.handleSongSearch.bind(this)} className="input-group">
-            <input type="text" className="form-control" placeholder="Search songs..." onChange={this.handleSongNameChange.bind(this)} />
+            <input id="song-search" type="text" className="form-control" placeholder="Search songs..." onChange={this.handleSongNameChange.bind(this)} />
             <span className="input-group-btn">
               <input className="btn btn-success" type="submit" value="Search" />
             </span>

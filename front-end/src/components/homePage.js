@@ -6,6 +6,7 @@ import SongSearchBar from './songSearchBar'
 import SongResults from './songResults'
 import Playlist from './playlist'
 import Groups from './groups'
+import Chat from './chat'
 import createGroup from '../actions/createGroup'
 
 class HomePage extends Component {
@@ -38,12 +39,14 @@ class HomePage extends Component {
         <div className="row">
           <div className="col-md-4 col-md-push-4">
             <div className="input-group">
-              <label>Invite your friends:</label>
-              <input type="text" id="group-name" className="form-control" placeholder="group name" onChange={this.handleGroupName.bind(this)} /> &nbsp;
-              <input type="text" id="invite-username" className="form-control" placeholder="user1, user2, user3" onChange={this.handleUsernames.bind(this)} />
-              <span className="input-group-btn">
-                <button className="btn btn-success" type="button" onClick={this.handleInvite.bind(this)}>Invite</button>
-              </span>
+              <form onSubmit={this.handleInvite.bind(this)} className="input-group">
+                <label>Invite your friends:</label>
+                <input type="text" id="group-name" className="form-control" placeholder="group name" onChange={this.handleGroupName.bind(this)} /> &nbsp;
+                <input type="text" id="invite-username" className="form-control" placeholder="user1, user2, user3" onChange={this.handleUsernames.bind(this)} />
+                <span className="input-group-btn">
+                  <button className="btn btn-success" type="button">Invite</button>
+                </span>
+              </form>
             </div>
           </div>
         </div>
@@ -52,6 +55,8 @@ class HomePage extends Component {
         <SongResults />
         <Groups />
         <Playlist />
+        <Chat />
+
 
       </div>)
   }
@@ -60,9 +65,5 @@ class HomePage extends Component {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createGroup }, dispatch)
 }
-
-// function mapStateToProps(state) {
-//   return {state}
-// }
 
 export default connect(null, mapDispatchToProps)(HomePage)

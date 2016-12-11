@@ -14,7 +14,14 @@ export default function loginUser(formData){
         alert(response.error)
       } else {
         localStorage.setItem('token', response.jwt)
-        dispatch({type: 'LOGIN_USER', user: response.user_id, groups: response.groups, group: response.group, playlist: response.playlist})
+        dispatch({
+          type: 'LOGIN_USER',
+          user: response.user_id,
+          groups: response.groups,
+          group: response.group,
+          playlist: response.playlist,
+          chat: response.chat
+        })
         browserHistory.push('/homepage')
       }
     })

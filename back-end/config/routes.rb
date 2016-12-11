@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/groups/:id', to: 'groups#show'
   post '/groups/:id/destroy', to: 'groups#destroy'
   post '/search', to: 'songs#search'
+  post '/messages', to: 'messages#create'
   resources :users, :groups, :messages
   resources :songs, except: [:destroy]
 

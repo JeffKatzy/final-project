@@ -12,8 +12,10 @@ class Groups extends Component {
 
   render() {
     let buttonList = this.props.groups.map(group => {
-      if (group.group_id !== parseInt(this.props.group)) {
+      if (group.group_id !== parseInt(this.props.group, 10)) {
         return (<button key={group.group_id} className="btn btn-success" onClick={this.changeGroup.bind(this, group.group_id)}>{group.group_name}</button>)
+      } else {
+        return null
       }
     })
 
