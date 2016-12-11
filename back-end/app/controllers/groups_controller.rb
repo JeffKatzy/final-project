@@ -1,12 +1,5 @@
 class GroupsController < ApplicationController
 
-    def index
-      groups = current_user.group.map do |group|
-        {id: group.id, name: group.name}
-      end
-      render json: {groups: groups}
-    end
-
     def show
       groups = current_user.groups.map do |group|
         {group_id: group.id, group_name: group.name}
@@ -31,7 +24,7 @@ class GroupsController < ApplicationController
       if invitees.each{|name| group.users << User.find_by(name: name)}
         render json: {
           playlist: group.songs,
-          chat: render_chat(current_group.id),
+          chat: render_chat(group.id),
           group: group.id, groups: groups
         }
       else

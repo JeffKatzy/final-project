@@ -5,7 +5,16 @@ export default function addSong(song, group) {
     $.ajax({
       url: `http://localhost:3000/songs`,
       type: 'POST',
-      data: JSON.stringify({song: {name: song.name, artist: song.artists[0].name, album: song.album.name, spotify_id: song.id}, user: {group: group}, token: localStorage.token}),
+      data: JSON.stringify({
+        song: {
+          name: song.name,
+          artist: song.artists[0].name,
+          album: song.album.name,
+          spotify_id: song.id
+        },
+        user: {group: group},
+        token: localStorage.token
+      }),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {

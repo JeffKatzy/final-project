@@ -2,17 +2,19 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post '/messages', to: 'messages#create'
 
+  post '/users', to: 'users#create'
   post '/login', to: 'users#show'
-  # post '/songs/:id/destroy', to: 'songs#destroy'
-  # post '/groups/:id', to: 'groups#show'
-  # post '/groups/:id/destroy', to: 'groups#destroy'
+
+  post '/groups', to: 'groups#create'
+  post '/groups/:id', to: 'groups#show'
+  post '/groups/:id/destroy', to: 'groups#destroy'
+
+  post '/songs', to: 'songs#create'
+  post '/songs/:id/destroy', to: 'songs#destroy'
   post '/search', to: 'songs#search'
-  resources :users, only: [:create]
-  resources :groups, only: [:create, :show, :index, :destroy]
-  resources :songs, only: [:create, :destroy]
-  resources :messages, only: [:create, :destroy]
-  # resources :users, :groups, :messages
-  # resources :songs, except: [:destroy]
+
+  post '/messages', to: 'messages#create'
+  post '/messages/:id/destroy', to: 'messages#destroy'
 
 
 end

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         groups: groups,
         group: user.groups.first.id,
         playlist: user.groups.first.songs,
-        chat: user.groups.first.messages
+        chat: render_chat(user.groups.first.id)
       }
     else
       render json: {error: 'Please log in with a valid account'}
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      group =  Group.create(name: user_params[:name])
+      group = Group.create(name: user_params[:name])
       group.songs << Song.new(
         name: "One Night",
         artist: "Lil Yachty",

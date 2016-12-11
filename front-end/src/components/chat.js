@@ -11,21 +11,20 @@ class Chat extends Component {
   constructor(props) {
     super(props)
     this.state = {messageText: ''}
-    this.chatOwner = this.chatOwner.bind(this)
+    // this.chatOwner = this.chatOwner.bind(this)
   }
 
-  handleDestroy(event) {
-    this.props.destroyMessage(event, this.props.group)
-  }
+  // handleDestroy(event) {
+  //   this.props.destroyMessage(event, this.props.group)
+  // }
 
-  chatOwner(message) {
-    if (message.userId === this.props.user) {
-      return <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}>{message.text}</span>
-    } else {
-      return <span >{message.text}</span>
-    }
-  }
-
+  // chatOwner(message) {
+  //   if (message.userId === this.props.user) {
+  //     return <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}>{message.text}</span>
+  //   } else {
+  //     return <span >{message.text}</span>
+  //   }
+  // }
 
   handleText(event){
     this.setState({messageText: event.target.value})
@@ -34,14 +33,14 @@ class Chat extends Component {
   handleMessage() {
     event.preventDefault()
     this.props.addMessage(this.state.messageText, this.props.user, this.props.group)
-    document.getElementById("message-text").value = ""
+    // document.getElementById("message-text").value = ""
   }
 
   render() {
     let chat = this.props.chat.map(message => {
       return (
         <div key={message.id}>
-          <li>{message.name}: {}</li>
+          <li>{message.sender}: {message.text}</li>
         </div>
       )
     })
@@ -65,7 +64,12 @@ class Chat extends Component {
 }
 
 function mapStateToProps(state) {
-  return {chat: state.chat, user: state.user, group: state.group, groups: state.groups}
+  return {
+    chat: state.chat,
+    user: state.user,
+    group: state.group,
+    groups: state.groups
+  }
 }
 
 function mapDispatchToProps(dispatch){

@@ -13,7 +13,7 @@ export default function createGroup(users, name) {
         alert("Please enter usernames of current users")
       } else {
         dispatch({type: 'CREATE_GROUP', playlist: response.playlist, groups: response.groups, group: response.group, chat: response.chat})
-        alert("Friend invited!")
+        alert("Friends invited!")
       }
     })
   }

@@ -15,12 +15,11 @@ class HomePage extends Component {
     this.state = {invite: '', groupName: ''}
   }
 
-  handleInvite() {
+  handleInvite(event) {
     event.preventDefault()
     this.props.createGroup(this.state.invite, this.state.groupName)
     document.getElementById("invite-username").value = ""
     document.getElementById("group-name").value = ""
-
   }
 
   handleGroupName(event) {
@@ -41,10 +40,10 @@ class HomePage extends Component {
             <div className="input-group">
               <form onSubmit={this.handleInvite.bind(this)} className="input-group">
                 <label>Invite your friends:</label>
-                <input type="text" id="group-name" className="form-control" placeholder="group name" onChange={this.handleGroupName.bind(this)} /> &nbsp;
+                <input type="text" id="group-name" className="form-control" placeholder="group name" onChange={this.handleGroupName.bind(this)} />
                 <input type="text" id="invite-username" className="form-control" placeholder="user1, user2, user3" onChange={this.handleUsernames.bind(this)} />
                 <span className="input-group-btn">
-                  <button className="btn btn-success" type="button">Invite</button>
+                  <button className="btn btn-success" type="submit">Invite</button>
                 </span>
               </form>
             </div>

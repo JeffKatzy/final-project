@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
-  helper_method :render_chat
 
   def create
     message = Message.new(message_params)
     if message.save
+      # render json: {message: "i made it"}
       render json: {chat: render_chat(message_params[:group_id])}
     else
       render json: {error: "Not good"}
@@ -20,10 +20,5 @@ class MessagesController < ApplicationController
       params.require(:message).permit(:group_id, :user_id, :text)
     end
 
-    def render_chat(group)
-      Group.find(group).messages.map do |message|
-        {id: message.id, user_id: message.user_id, text: message.text, sender: User.find(message.user_id).name}
-      end
-    end
 
 end

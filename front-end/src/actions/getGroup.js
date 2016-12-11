@@ -9,7 +9,13 @@ export default function getGroup(id) {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done((response) => {
-      dispatch({type: 'GET_GROUP', playlist: response.playlist, chat: response.chat, groups: response.groups, group: response.group})
+      dispatch({
+        type: 'GET_GROUP',
+        playlist: response.playlist,
+        chat: response.chat,
+        groups: response.groups,
+        group: response.group
+      })
     })
   }
 }
