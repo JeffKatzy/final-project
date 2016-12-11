@@ -22,6 +22,13 @@ body {
   background-color: transparent;
 }
 
+.group-selector {
+  max-height: 40px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
 .song-results-table {
   max-height: 360px;
   overflow-y: auto;
@@ -41,10 +48,10 @@ li {
   left: 30%;
 }
 
-.col-md-3 {
-  /*background-color: purple;*/
+/*.col-md-3 {
+  background-color: purple;
 }
 
 .col-md-6 {
-  /*background-color: red;*/
-}
+  background-color: red;
+}*/

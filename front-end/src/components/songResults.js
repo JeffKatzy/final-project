@@ -12,7 +12,8 @@ class SongResults extends Component {
 
   render() {
     let songs = this.props.songs.map(song => {return (
-      <tr key={song.id}><td><span className="glyphicon glyphicon-plus" onClick={this.handleAdd.bind(this, song)}></span></td><td>{song.name}</td><td>{song.album.name}</td><td>{song.artists[0].name}</td></tr>)})
+      <tr key={song.id}><td><span className="glyphicon glyphicon-plus" onClick={this.handleAdd.bind(this, song)}></span></td><td>{song.name}</td><td>{song.album.name}</td><td>{song.artists[0].name}</td></tr>)}
+    )
 
     return(
       <div className="row">

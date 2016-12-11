@@ -20,9 +20,17 @@ class Playlist extends Component {
   render() {
     let songs = this.props.playlist.map(song => {
       return (
-        <div key={song.id}>
-          <li>{song.name} - {song.album}, {song.artist} <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, song.id)}></span></li>
-        </div>
+        <tr key={song.id}>
+          <td>
+            <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, song.id)}></span>
+          </td>
+          <td>
+            {song.name}
+          </td>
+          <td>
+            {song.artist}
+          </td>
+        </tr>
       )})
 
     return(
@@ -33,9 +41,12 @@ class Playlist extends Component {
 
         <h4>Playlist</h4>
         <button className="button btn btn-success" onClick={this.handleClear.bind(this)}>Delete Playlist</button>
-        <ul>
-          {songs}
-        </ul>
+
+        <table className="table table-hover">
+          <tbody>
+            {songs}
+          </tbody>
+        </table>
       </div>
     )
   }
