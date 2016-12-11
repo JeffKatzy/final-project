@@ -36,14 +36,22 @@ class Chat extends Component {
 
   render() {
     let chat = this.props.chat.map(message => {
-      return (
-        <div key={message.id}>
-          <li><span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span>
-      {message.sender}: {message.text}</li>
-        </div>
-      )
+      if (message.user_id === this.props.user) {
+        return (
+          <div key={message.id}>
+            <li>
+            <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span>
+            {message.sender}: {message.text}</li>
+          </div>
+      )} else {
+        return (
+          <div key={message.id}>
+            <li>{message.sender}: {message.text}</li>
+          </div>
+        )}
     })
-    let groupName = this.props.groups.filter(group => group.id === this.props.group).name
+
+    let groupName = this.props.groups.filter(group => {return group.group_id === parseInt(this.props.group, 10)})[0]["group_name"]
 
     return(
       <div>
