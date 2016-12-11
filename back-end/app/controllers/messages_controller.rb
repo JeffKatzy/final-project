@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
 
   def destroy
     Message.find(params[:id]).destroy
-
     render json: {chat: render_chat(message_params[:group_id])}
   end
 
@@ -22,7 +21,7 @@ class MessagesController < ApplicationController
     end
 
     def render_chat(group)
-      Group.find(group).each do |message|
+      Group.find(group).messages.map do |message|
         {id: message.id, user_id: message.user_id, text: message.text, sender: User.find(message.user_id).name}
       end
     end
