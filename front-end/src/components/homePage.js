@@ -48,10 +48,18 @@ class HomePage extends Component {
           </div>
         </div>
 
-        <SongSearchBar />
-        <SongResults />
-        <Groups />
-        <Playlist />
+        <div className="row">
+          <div className="col-md-3">
+            <Playlist />
+          </div>
+          <div className="col-md-6">
+            <SongSearchBar />
+            <SongResults />
+          </div>
+          <div className="col-md-3">
+            <Groups />
+          </div>
+        </div>
 
       </div>)
   }

@@ -16,7 +16,7 @@ class SongResults extends Component {
 
     return(
       <div className="row">
-        <div className="col-md-8 col-md-push-2">
+        <div className="song-results-table">
           <table className="table table-hover">
             <tbody>
               {songs}

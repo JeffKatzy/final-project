@@ -39,7 +39,7 @@ class App extends Component {
           </div>
         </div>
         <div className="App">
-          <div className="container">
+          <div className="the-better-container">
             <div className="jumbotron">
               <h1>DayJams</h1>
               {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
