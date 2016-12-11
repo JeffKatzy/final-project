@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
   def create
     message = Message.new(message_params)
     if message.save
-      # render json: {message: "i made it"}
       render json: {chat: render_chat(message_params[:group_id])}
     else
       render json: {error: "Not good"}

@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import getGroup from '../actions/getGroup'
+// import getGroup from '../actions/getGroup'
 import destroyMessage from '../actions/destroyMessage'
 import addMessage from '../actions/addMessage'
-
-
 
 class Chat extends Component {
   constructor(props) {
@@ -30,10 +28,10 @@ class Chat extends Component {
     this.setState({messageText: event.target.value})
   }
 
-  handleMessage() {
+  handleMessage(event) {
     event.preventDefault()
     this.props.addMessage(this.state.messageText, this.props.user, this.props.group)
-    // document.getElementById("message-text").value = ""
+    document.getElementById("message-text").value = ""
   }
 
   render() {
@@ -52,7 +50,7 @@ class Chat extends Component {
         <form onSubmit={this.handleMessage.bind(this)} className="input-group">
           <input id="message-text" type="text" className="form-control" placeholder="Type message" onChange={this.handleText.bind(this)} />
           <span className="input-group-btn">
-            <input className="btn btn-success" type="submit" value="Search" />
+            <input className="btn btn-success" type="submit" value="Send Message" />
           </span>
         </form>
         <ul>
@@ -73,7 +71,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ getGroup, destroyMessage, addMessage }, dispatch)
+  return bindActionCreators({ addMessage }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat)
