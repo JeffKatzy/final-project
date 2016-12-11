@@ -9,7 +9,7 @@ export default function chat(state=[], action) {
     case 'ADD_MESSAGE':
       return action.chat
     case 'DESTROY_MESSAGE':
-      return [...state.slice(0, action.index), ...state.chat.slice(action.index + 1, state.chat.length)]
+      return action.chat
     case 'LOGOUT_USER':
       return []
     default:

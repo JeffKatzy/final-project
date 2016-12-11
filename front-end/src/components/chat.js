@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-// import getGroup from '../actions/getGroup'
 import destroyMessage from '../actions/destroyMessage'
 import addMessage from '../actions/addMessage'
 
@@ -12,17 +11,18 @@ class Chat extends Component {
     // this.chatOwner = this.chatOwner.bind(this)
   }
 
-  // handleDestroy(event) {
-  //   this.props.destroyMessage(event, this.props.group)
-  // }
+  handleDestroy(event) {
+    this.props.destroyMessage(event, this.props.group)
+  }
 
   // chatOwner(message) {
-  //   if (message.userId === this.props.user) {
-  //     return <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}>{message.text}</span>
-  //   } else {
-  //     return <span >{message.text}</span>
+
+    // if (message.userId === this.props.user) {
+      // return <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span>
   //   }
   // }
+//   {message.userId === this.props.user ? <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span> : null
+// }
 
   handleText(event){
     this.setState({messageText: event.target.value})
@@ -38,7 +38,8 @@ class Chat extends Component {
     let chat = this.props.chat.map(message => {
       return (
         <div key={message.id}>
-          <li>{message.sender}: {message.text}</li>
+          <li><span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span>
+      {message.sender}: {message.text}</li>
         </div>
       )
     })
@@ -71,7 +72,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ addMessage }, dispatch)
+  return bindActionCreators({ addMessage, destroyMessage }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat)
