@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import './App.css';
 import Welcome from './components/welcome'
 import logoutUser from './actions/logoutUser'
+import { Link } from 'react-router'
 
 class App extends Component {
   constructor(){
@@ -32,19 +33,26 @@ class App extends Component {
     return (
       <div className="everything">
         <div className="Navbar">
+
           <div className="navbar navbar-default">
             <div className="container-fluid">
-              <a className="navbar-brand" href="#">DayJams</a>
+              <div className="navbar-header">
+                <a className="navbar-brand" href="#">DayJams</a>
+              </div>
+              <div className="nav navbar-nav navbar-right">
+                <span onClick={this.props.handleLogout}><Link to={'/'} className="btn btn-success navbar-btn">SignOut</Link></span>
+              </div>
             </div>
           </div>
+
         </div>
         <div className="App">
           <div className="the-better-container">
             <div className="jumbotron">
               <h1>DayJams</h1>
               {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
-              {childrenWithExtraProp}
             </div>
+            {childrenWithExtraProp}
           </div>
         </div>
       </div>

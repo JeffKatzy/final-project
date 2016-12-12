@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import SongSearchBar from './songSearchBar'
 import SongResults from './songResults'
 import Playlist from './playlist'
@@ -33,31 +32,33 @@ class HomePage extends Component {
   render(){
     return(
       <div>
-        <p onClick={this.props.handleLogout}><Link to={'/'} className="button btn btn-success">SignOut</Link></p>
-
-        <div className="row">
-          <div className="col-md-4 col-md-push-4">
-            <div className="input-group">
-              <label>Invite your friends:</label>
-              <input type="text" id="group-name" className="form-control" placeholder="group name" onChange={this.handleGroupName.bind(this)} /> &nbsp;
-              <input type="text" id="invite-username" className="form-control" placeholder="user1, user2, user3" onChange={this.handleUsernames.bind(this)} />
-              <span className="input-group-btn">
-                <button className="btn btn-success" type="button" onClick={this.handleInvite.bind(this)}>Invite</button>
-              </span>
-            </div>
-          </div>
-        </div>
 
         <div className="row">
           <div className="col-md-3">
             <Playlist />
           </div>
           <div className="col-md-6">
+
+            <div className="form-inline">
+              <div className="form-group">
+                <label>Group Name</label>
+                <input type="text" className="form-control" id="group-name" placeholder="The Party People" onChange={this.handleGroupName.bind(this)} />
+              </div>
+              <div className="form-group">
+                <label>Members</label>
+                <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
+              </div>
+              <button type="button" className="btn btn-success" onClick={this.handleInvite.bind(this)}>Invite</button>
+            </div>
+
             <SongSearchBar />
             <SongResults />
           </div>
           <div className="col-md-3">
+            <h4>Swap ur Groop</h4>
             <Groups />
+
+            <h4>Chat ur Groop</h4>
           </div>
         </div>
 
