@@ -8,21 +8,11 @@ class Chat extends Component {
   constructor(props) {
     super(props)
     this.state = {messageText: ''}
-    // this.chatOwner = this.chatOwner.bind(this)
   }
 
   handleDestroy(event) {
     this.props.destroyMessage(event, this.props.group)
   }
-
-  // chatOwner(message) {
-
-    // if (message.userId === this.props.user) {
-      // return <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span>
-  //   }
-  // }
-//   {message.userId === this.props.user ? <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span> : null
-// }
 
   handleText(event){
     this.setState({messageText: event.target.value})
@@ -36,19 +26,15 @@ class Chat extends Component {
 
   render() {
     let chat = this.props.chat.map(message => {
+      let deleteSpan = null
       if (message.user_id === this.props.user) {
-        return (
-          <div key={message.id}>
-            <li>
-            <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span>
-            {message.sender}: {message.text}</li>
-          </div>
-      )} else {
-        return (
-          <div key={message.id}>
-            <li>{message.sender}: {message.text}</li>
-          </div>
-        )}
+        deleteSpan = <span className="glyphicon glyphicon-remove" onClick={this.handleDestroy.bind(this, message.id)}></span>
+      }
+      return (
+        <div key={message.id}>
+          <li>{deleteSpan}{message.sender}: {message.text}</li>
+        </div>
+      )
     })
 
     let groupName = this.props.groups.filter(group => {return group.group_id === parseInt(this.props.group, 10)})[0]["group_name"]

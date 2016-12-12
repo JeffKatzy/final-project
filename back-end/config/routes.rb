@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   post '/messages', to: 'messages#create'
   post '/messages/:id/destroy', to: 'messages#destroy'
 
-
 end
