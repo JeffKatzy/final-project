@@ -18,7 +18,7 @@ class Groups extends Component {
   }
 
   render() {
-    setInterval(this.fetch, 10000)
+    // setInterval(this.fetch, 10000)
 
     let buttonList = this.props.groups.map(group => {
       if (group.group_id !== parseInt(this.props.group, 10)) {

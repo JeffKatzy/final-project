@@ -9,10 +9,14 @@ import { Link } from 'react-router'
 class App extends Component {
   constructor(){
     super()
-    this.state = {showWelcome: true}
+    this.state = {showWelcome: true, user: null}
     this.showWelcome = this.showWelcome.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
   }
+
+  // showLogout() {
+  //   this.setState({})
+  // }
 
   showWelcome() {
     this.setState({showWelcome: false})
@@ -30,6 +34,8 @@ class App extends Component {
       })
     })
 
+    const logout = this.state.user ? <span onClick={this.props.handleLogout}><Link to={'/'} className="btn btn-success navbar-btn">SignOut</Link></span> : null
+
     return (
       <div className="everything">
         <div className="Navbar">
@@ -40,7 +46,7 @@ class App extends Component {
                 <a className="navbar-brand" href="#">DayJams</a>
               </div>
               <div className="nav navbar-nav navbar-right">
-                <span onClick={this.props.handleLogout}><Link to={'/'} className="btn btn-success navbar-btn">SignOut</Link></span>
+                {logout}
               </div>
             </div>
           </div>
