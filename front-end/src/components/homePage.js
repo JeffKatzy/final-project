@@ -34,23 +34,21 @@ class HomePage extends Component {
       <div>
 
         <div className="row">
-<<<<<<< HEAD
           <div className="col-md-3">
             <Playlist />
           </div>
           <div className="col-md-6">
 
-            <div className="form-inline">
+            <form onSubmit={this.handleInvite.bind(this)} className="form-inline">
               <div className="form-group">
-                <form onSubmit={this.handleInvite.bind(this)} className="input-group">
-                <label>Group Name</label>
-                <input type="text" className="form-control" id="group-name" placeholder="The Party People" onChange={this.handleGroupName.bind(this)} />
-              </div>
-              <div className="form-group">
-                <label>Members</label>
-                <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
-              </div>
-              <button className="btn btn-success" type="submit">Invite</button>
+                  <label>Group Name</label>
+                  <input type="text" className="form-control" id="group-name" placeholder="The Party People" onChange={this.handleGroupName.bind(this)} />
+                </div>
+                <div className="form-group">
+                  <label>Members</label>
+                  <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
+                </div>
+                <button className="btn btn-success" type="submit">Invite</button>
               </form>
             </div>
 
