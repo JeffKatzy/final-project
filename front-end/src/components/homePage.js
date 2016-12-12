@@ -5,6 +5,7 @@ import SongSearchBar from './songSearchBar'
 import SongResults from './songResults'
 import Playlist from './playlist'
 import Groups from './groups'
+import Chat from './chat'
 import createGroup from '../actions/createGroup'
 
 class HomePage extends Component {
@@ -13,12 +14,11 @@ class HomePage extends Component {
     this.state = {invite: '', groupName: ''}
   }
 
-  handleInvite() {
+  handleInvite(event) {
     event.preventDefault()
     this.props.createGroup(this.state.invite, this.state.groupName)
     document.getElementById("invite-username").value = ""
     document.getElementById("group-name").value = ""
-
   }
 
   handleGroupName(event) {
@@ -34,6 +34,7 @@ class HomePage extends Component {
       <div>
 
         <div className="row">
+<<<<<<< HEAD
           <div className="col-md-3">
             <Playlist />
           </div>
@@ -41,6 +42,7 @@ class HomePage extends Component {
 
             <div className="form-inline">
               <div className="form-group">
+                <form onSubmit={this.handleInvite.bind(this)} className="input-group">
                 <label>Group Name</label>
                 <input type="text" className="form-control" id="group-name" placeholder="The Party People" onChange={this.handleGroupName.bind(this)} />
               </div>
@@ -48,7 +50,8 @@ class HomePage extends Component {
                 <label>Members</label>
                 <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
               </div>
-              <button type="button" className="btn btn-success" onClick={this.handleInvite.bind(this)}>Invite</button>
+              <button className="btn btn-success" type="submit">Invite</button>
+              </form>
             </div>
 
             <SongSearchBar />
@@ -59,19 +62,16 @@ class HomePage extends Component {
             <Groups />
 
             <h4>Chat ur Groop</h4>
+            <Chat />
           </div>
         </div>
 
-      </div>)
+    )
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createGroup }, dispatch)
 }
-
-// function mapStateToProps(state) {
-//   return {state}
-// }
 
 export default connect(null, mapDispatchToProps)(HomePage)

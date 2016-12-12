@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import findSong from '../actions/findSong'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import findSong from '../actions/findSong'
 
 class SongSearchBar extends Component {
   constructor(props) {
@@ -16,13 +16,14 @@ class SongSearchBar extends Component {
   handleSongSearch(event) {
     event.preventDefault()
     this.props.findSong(this.state)
+    document.getElementById("song-search").value = ""
   }
 
   render() {
     return(
       <div className="row">
           <form onSubmit={this.handleSongSearch.bind(this)} className="input-group">
-            <input type="text" className="form-control" placeholder="Search songs..." onChange={this.handleSongNameChange.bind(this)} />
+            <input id="song-search" type="text" className="form-control" placeholder="Search songs..." onChange={this.handleSongNameChange.bind(this)} />
             <span className="input-group-btn">
               <input className="btn btn-success" type="submit" value="Search" />
             </span>

@@ -7,4 +7,4 @@ import showWelcome from './showWelcomeReducer'
 import groups from './groupsReducer'
 import group from './groupReducer'
 
-export default combineReducers({user, songResults, playlist, showWelcome, groups, group})
+export default combineReducers({user, songResults, playlist, showWelcome, groups, group, chat})
