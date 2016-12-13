@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
       group = Group.create(name: group_params[:name])
       group.users << current_user
       invitees = group_params[:users].split(", ")
+#         this logic could be moved inot a view object.
       groups = current_user.groups.map do |group|
         {group_id: group.id, group_name: group.name}
       end
