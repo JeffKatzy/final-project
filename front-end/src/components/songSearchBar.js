@@ -16,6 +16,7 @@ class SongSearchBar extends Component {
   handleSongSearch(event) {
     event.preventDefault()
     this.props.findSong(this.state)
+//     don't directly manipulate the dom.
     document.getElementById("song-search").value = ""
   }
 
