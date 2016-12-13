@@ -49,6 +49,7 @@ class HomePage extends Component {
               </div>
               <button className="btn btn-success" type="submit">Add Group</button>
             </form>
+
             <SongSearchBar />
             <SongResults />
           </div>

@@ -42,3 +42,7 @@ li {
   top: 20%;
   left: 30%;
 }
+
+.welcome-pad {
+  padding: 5px;
+}
