@@ -17,6 +17,8 @@ class HomePage extends Component {
   handleInvite(event) {
     event.preventDefault()
     this.props.createGroup(this.state.invite, this.state.groupName)
+    
+//     here to avoid, accessing the dom - instead just render out the stat.e
     document.getElementById("invite-username").value = ""
     document.getElementById("group-name").value = ""
   }
@@ -31,6 +33,7 @@ class HomePage extends Component {
 
   render(){
     return(
+//        I would abstract this into even more components.
       <div>
 
         <div className="row">
