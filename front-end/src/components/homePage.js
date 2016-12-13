@@ -45,21 +45,30 @@ class HomePage extends Component {
           </div>
 
           <div className="col-md-3">
-            <h4>Create A New Group</h4>
-            <form onSubmit={this.handleInvite.bind(this)} className="form-inline">
-              <div className="form-group">
-                <input type="text" className="form-control" id="group-name" placeholder="Group Name" onChange={this.handleGroupName.bind(this)} />
-              </div>
-              <div className="form-group">
-                <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
-              </div>
-              <button className="btn btn-success" type="submit">Add Group</button>
-            </form>
-
-            <h4>Swap you Group</h4>
+            <h4>Swap Your Group</h4>
             <Groups />
 
-            <h4>Chat your Group</h4>
+            <h4>Create A New Group</h4>
+
+            <form onSubmit={this.handleInvite.bind(this)} className="form-horizontal">
+              <div className="form-group">
+                <div className="col-md-12">
+                  <input type="text" className="form-control" id="group-name" placeholder="Group Name" onChange={this.handleGroupName.bind(this)} />
+                </div>
+              </div>
+              <div className="form-group">
+                <div className="col-md-12">
+                  <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
+                </div>
+              </div>
+              <div className="form-group">
+                <div className="col-md-12">
+                  <button className="btn btn-success" type="submit">Add Group</button>
+                </div>
+              </div>
+            </form>
+
+            <h4>Chat Your Group</h4>
             <Chat />
           </div>
 
