@@ -54,10 +54,7 @@ class App extends Component {
         </div>
         <div className="App">
           <div className="the-better-container">
-            <div className="jumbotron">
-              <h1>DayJams</h1>
-              {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
-            </div>
+            {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
             {childrenWithExtraProp}
           </div>
         </div>
