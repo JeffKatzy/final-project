@@ -26,6 +26,8 @@ class SongSearchBar extends Component {
           <div className="col-md-2"></div>
           <div className="col-md-8">
             <input id="song-search" type="text" className="form-control" placeholder="Search songs..." onChange={this.handleSongNameChange.bind(this)} />
+          </div>
+          <div className="col-md-2">
             <input className="btn btn-success" type="submit" value="Search" />
           </div>
         </form>
