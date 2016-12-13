@@ -40,6 +40,12 @@ class HomePage extends Component {
           </div>
 
           <div className="col-md-6">
+            <SongSearchBar />
+            <SongResults />
+          </div>
+
+          <div className="col-md-3">
+            <h4>Create A New Group</h4>
             <form onSubmit={this.handleInvite.bind(this)} className="form-inline">
               <div className="form-group">
                 <input type="text" className="form-control" id="group-name" placeholder="Group Name" onChange={this.handleGroupName.bind(this)} />
@@ -50,11 +56,6 @@ class HomePage extends Component {
               <button className="btn btn-success" type="submit">Add Group</button>
             </form>
 
-            <SongSearchBar />
-            <SongResults />
-          </div>
-
-          <div className="col-md-3">
             <h4>Swap you Group</h4>
             <Groups />
 
