@@ -35,7 +35,7 @@ class Playlist extends Component {
 
     return(
       <div className="playlist-time">
-        <div id="musicPlayer">
+        <div>
           <SongPlayer playlist={this.props.playlist} />
         </div>
 

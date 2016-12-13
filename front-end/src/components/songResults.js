@@ -16,15 +16,11 @@ class SongResults extends Component {
     )
 
     return(
-      <div className="row">
-        <div className="song-results-table">
-          <table className="table table-hover">
-            <tbody>
-              {songs}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <table className="table table-hover">
+        <tbody>
+          {songs}
+        </tbody>
+      </table>
     )
   }
 }

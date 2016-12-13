@@ -37,12 +37,10 @@ li {
   list-style-type: none;
 }
 
-#musicPlayer {
-  position: static;
-  top: 20%;
-  left: 30%;
-}
-
 .welcome-pad {
   padding: 5px;
+}
+
+.well {
+  background-color: rgb(223, 240, 216);
 }

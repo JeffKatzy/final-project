@@ -40,38 +40,61 @@ class HomePage extends Component {
           </div>
 
           <div className="col-md-6">
-            <SongSearchBar />
-            <SongResults />
+
+            <div className="panel panel-success">
+              <div className="well">
+                <SongSearchBar />
+              </div>
+              <SongResults />
+            </div>
+
           </div>
 
           <div className="col-md-3">
-            <h4>Swap Your Group</h4>
-            <Groups />
 
-            <h4>Create A New Group</h4>
+            <div className="panel panel-success">
+              <div className="panel-heading">
+                <h3 className="panel-title">Swap Groups</h3>
+              </div>
+              <div className="panel-body">
+                <Groups />
+              </div>
+            </div>
 
-            <form onSubmit={this.handleInvite.bind(this)} className="form-horizontal">
-              <div className="form-group">
-                <div className="col-md-12">
-                  <input type="text" className="form-control" id="group-name" placeholder="Group Name" onChange={this.handleGroupName.bind(this)} />
-                </div>
+            <div className="panel panel-success">
+              <div className="panel-heading">
+                <h3 className="panel-title">Create A Group</h3>
               </div>
-              <div className="form-group">
-                <div className="col-md-12">
-                  <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
-                </div>
+              <div className="panel-body">
+                <form onSubmit={this.handleInvite.bind(this)} className="form-horizontal">
+                  <div className="form-group">
+                    <div className="col-md-12">
+                      <input type="text" className="form-control" id="group-name" placeholder="Group Name" onChange={this.handleGroupName.bind(this)} />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <div className="col-md-12">
+                      <input type="text" id="invite-username" className="form-control" placeholder="charlie, niky, wesley" onChange={this.handleUsernames.bind(this)} />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <div className="col-md-12">
+                      <button className="btn btn-success" type="submit">Add Group</button>
+                    </div>
+                  </div>
+                </form>
               </div>
-              <div className="form-group">
-                <div className="col-md-12">
-                  <button className="btn btn-success" type="submit">Add Group</button>
-                </div>
-              </div>
-            </form>
+            </div>
 
-            <h4>Chat Your Group</h4>
-            <Chat />
+            <div className="panel panel-success">
+              <div className="panel-heading">
+                <h3 className="panel-title">Group Chat</h3>
+              </div>
+              <div className="panel-body">
+                <Chat />
+              </div>
+            </div>
           </div>
-
         </div>
       </div>
     )
