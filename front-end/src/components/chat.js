@@ -32,7 +32,7 @@ class Chat extends Component {
       }
       return (
         <div key={message.id}>
-          <li>{deleteSpan}{message.sender}: {message.text}</li>
+          <li className="list-group-item">{deleteSpan}{message.sender}: {message.text}</li>
         </div>
       )
     })
@@ -40,17 +40,21 @@ class Chat extends Component {
     let groupName = this.props.groups.filter(group => {return group.group_id === parseInt(this.props.group, 10)})[0]["group_name"]
 
     return(
-      <div>
-        <h4>{groupName} Chat</h4>
-        <form onSubmit={this.handleMessage.bind(this)} className="input-group">
-          <input id="message-text" type="text" className="form-control" placeholder="Type message" onChange={this.handleText.bind(this)} />
-          <span className="input-group-btn">
-            <input className="btn btn-success" type="submit" value="Send Message" />
-          </span>
-        </form>
-        <ul>
-          {chat}
-        </ul>
+      <div className="panel panel-success">
+        <div className="panel-heading">
+          <h3 className="panel-title">{groupName} Chat</h3>
+        </div>
+        <div className="panel-body">
+          <form onSubmit={this.handleMessage.bind(this)} className="input-group">
+            <input id="message-text" type="text" className="form-control" placeholder="Type message" onChange={this.handleText.bind(this)} />
+            <span className="input-group-btn">
+              <input className="btn btn-success" type="submit" value="Send Message" />
+            </span>
+          </form>
+          <ul className="list-group">
+            {chat}
+          </ul>
+        </div>
       </div>
     )
   }

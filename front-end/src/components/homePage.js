@@ -35,11 +35,11 @@ class HomePage extends Component {
 
         <div className="row">
 
-          <div className="col-md-3">
+          <div className="col-md-4">
             <Playlist />
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-4">
 
             <div className="panel panel-success">
               <div className="well">
@@ -50,7 +50,7 @@ class HomePage extends Component {
 
           </div>
 
-          <div className="col-md-3">
+          <div className="col-md-4">
 
             <div className="panel panel-success">
               <div className="panel-heading">
@@ -86,14 +86,7 @@ class HomePage extends Component {
               </div>
             </div>
 
-            <div className="panel panel-success">
-              <div className="panel-heading">
-                <h3 className="panel-title">Group Chat</h3>
-              </div>
-              <div className="panel-body">
-                <Chat />
-              </div>
-            </div>
+            <Chat />
           </div>
         </div>
       </div>

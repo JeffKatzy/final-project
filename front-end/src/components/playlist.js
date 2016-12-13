@@ -13,6 +13,9 @@ class Playlist extends Component {
     this.props.destroySong(event, this.props.group)
   }
 
+  // delete playlist button
+  // <button className="button btn btn-success" onClick={this.handleClear.bind(this)}>Delete Playlist</button>
+
   handleClear() {
     this.props.destroyPlaylist(this.props.group, this.props.user)
   }
@@ -34,13 +37,10 @@ class Playlist extends Component {
       )})
 
     return(
-      <div className="playlist-time">
-        <div>
+      <div className="panel panel-success">
+        <div className="well">
           <SongPlayer playlist={this.props.playlist} />
         </div>
-
-        <h4>Playlist</h4>
-        <button className="button btn btn-success" onClick={this.handleClear.bind(this)}>Delete Playlist</button>
 
         <table className="table table-hover">
           <tbody>
