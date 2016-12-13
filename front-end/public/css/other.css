@@ -7,9 +7,9 @@ body {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.6);
+  /*background-color: rgba(255, 255, 255, 0.6);*/
   border-radius: 15px;
-  /*width: 95%;*/
+  width: 95%;
 }
 
 .the-better-container {
@@ -18,9 +18,9 @@ body {
   padding: 0px 10px;
 }
 
-.jumbotron {
+/*.jumbotron {
   background-color: transparent;
-}
+}*/
 
 .group-selector {
   max-height: 40px;

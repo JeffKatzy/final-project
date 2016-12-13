@@ -37,29 +37,14 @@ class App extends Component {
     const logout = this.state.user ? <span onClick={this.props.handleLogout}><Link to={'/'} className="btn btn-success navbar-btn">SignOut</Link></span> : null
 
     return (
-      <div className="everything">
-        <div className="Navbar">
-
-          <div className="navbar navbar-default">
-            <div className="container-fluid">
-              <div className="navbar-header">
-                <a className="navbar-brand" href="#">DayJams</a>
-              </div>
-              <div className="nav navbar-nav navbar-right">
-                {logout}
-              </div>
-            </div>
-          </div>
-
+      <div className="App">
+      <div className="the-better-container">
+        <div className="container">
+          <h1>DayJams</h1>
+          {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
+          {logout}
+          {childrenWithExtraProp}
         </div>
-        <div className="App">
-          <div className="the-better-container">
-            <div className="jumbotron">
-              <h1>DayJams</h1>
-              {this.state.showWelcome ? <Welcome showWelcome={this.showWelcome}/> : null}
-            </div>
-            {childrenWithExtraProp}
-          </div>
         </div>
       </div>
     );
