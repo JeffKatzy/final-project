@@ -10,6 +10,8 @@ class Groups extends Component {
   }
   changeGroup(event) {
     this.props.getGroup(event)
+//     try to avoid directly manipulating the dom - instead should just change the state.
+//     And rendering should reference the state.
     document.getElementsByClassName("group-selector")[0].value = ""
   }
 
